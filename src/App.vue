@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import '@/styles/routerTransition.css'
 usePageIcon()
 </script>
 
 <template>
   <div overflow-hidden>
-    <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
+    <router-view v-slot="{ Component, route }">
+      <transition
+        :name="route.name as string || 'fade'"
+        mode="out-in"
+      >
         <component :is="Component" />
       </transition>
     </router-view>
@@ -15,16 +19,16 @@ usePageIcon()
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .3s;
+  transition: all .25s;
 }
 
 .fade-enter-from {
-  opacity: 0;
-  transform: translateY(-50vh);
+
+  transform: translateY(-20vh);
 }
 
 .fade-leave-to {
-  opacity: 0;
-  transform: translateY(50vh);
+
+  transform: translateY(20vh);
 }
 </style>

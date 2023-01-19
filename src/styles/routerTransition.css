@@ -1,0 +1,29 @@
+.user-login-enter-active,
+.user-login-leave-active {
+  transition: all .3s;
+}
+
+.user-login-enter-from {
+  opacity: 0;
+  transform: translateY(-40vh);
+}
+
+.user-login-leave-to {
+  opacity: 0;
+  transform: translateY(40vh);
+}
+
+.index-enter-active,
+.index-leave-active {
+  transition: all .3s;
+}
+
+.index-enter-from {
+  opacity: 0;
+  transform: translateY(40vh);
+}
+
+.index-leave-to {
+  opacity: 0;
+  transform: translateY(-40vh);
+}

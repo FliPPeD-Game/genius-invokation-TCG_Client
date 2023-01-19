@@ -4,6 +4,7 @@ import 'element-plus/es/components/message/style/css'
 import { saveLoginToken } from '@/request/token'
 
 const router = useRouter()
+
 const password = ref('')
 const emailCode = ref('')
 const allowSendEmail = ref(false)
