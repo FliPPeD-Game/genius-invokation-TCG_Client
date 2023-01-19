@@ -9,6 +9,13 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  rules: [
+    [
+      'text-shadow', {
+        'text-shadow': '-1px -1px 1px #000, 1px -1px 1px #673b2c, -1px 1px 1px #673b2c, 1px 1px 1px #673b2c',
+      },
+    ],
+  ],
   shortcuts: [
     ['btn', 'px-8 py-4 rounded-full inline-block bg-#88abaf text-white cursor-pointer transition duration-200 ease-in-out hover:bg-#9acfce disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50 disabled:hover:bg-gray-600'],
     ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],

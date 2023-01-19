@@ -32,7 +32,7 @@ const getCharacterSrc = (name: string): string => {
       absolute
       flex justify-center items-center
     >
-      <span text-shadow-xl>
+      <span text-shadow translate-y-2>
         {{ hp }}
       </span>
     </div>
@@ -57,7 +57,7 @@ const getCharacterSrc = (name: string): string => {
   width: 6.4vw;
   height: 7.4vw;
   left: -1vw;
-  top: -1.9vw;
+  top: -2vw;
   background-image:url(/cards/hp_icon.png);
   font-weight: 500;
 }
