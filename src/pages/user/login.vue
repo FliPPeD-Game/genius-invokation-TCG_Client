@@ -121,96 +121,99 @@ const isBtnDisabled = computed(() => {
 </script>
 
 <template>
-  <div
-    class="contanier"
-    flex items-center justify-center
-    h-100vh p-6
-  >
-    <div class="login-card">
-      <div class="column">
-        <h1 mb-5 text-4xl font-900>
-          {{ loginLabel }}
-        </h1>
-        <p>快{{ loginLabel }}账号，来一场七圣召唤吧！</p>
-        <p color-gray text-sm mt-1>
-          {{ isRegisted ? '没有账号?输入邮箱将自动注册' : '该邮箱未绑定账号，现为你注册' }}
-        </p>
-        <div mt-12>
-          <div>
-            <input
-              v-model="emailValue"
-              type="text"
-              input
-              placeholder="邮箱"
-              @change="emailChange"
-              @input="emailInput"
+  <div overflow-hidden>
+    <Header />
+    <div
+      class="contanier"
+      flex items-center justify-center
+      h-100vh p-6
+    >
+      <div class="login-card">
+        <div class="column">
+          <h1 mb-5 text-4xl font-900>
+            {{ loginLabel }}
+          </h1>
+          <p>快{{ loginLabel }}账号，来一场七圣召唤吧！</p>
+          <p color-gray text-sm mt-1>
+            {{ isRegisted ? '没有账号?输入邮箱将自动注册' : '该邮箱未绑定账号，现为你注册' }}
+          </p>
+          <div mt-12>
+            <div>
+              <input
+                v-model="emailValue"
+                type="text"
+                input
+                placeholder="邮箱"
+                @change="emailChange"
+                @input="emailInput"
+              >
+            </div>
+            <div v-if="isErrorEmail">
+              <p color-red text-xs ml-2>
+                邮箱格式错误
+              </p>
+            </div>
+            <div
+              :class="isErrorEmail ? '' : 'mt-4'"
             >
-          </div>
-          <div v-if="isErrorEmail">
-            <p color-red text-xs ml-2>
-              邮箱格式错误
-            </p>
-          </div>
-          <div
-            :class="isErrorEmail ? '' : 'mt-4'"
-          >
-            <input
-              v-model="password"
-              type="password"
-              input
-              placeholder="密码"
+              <input
+                v-model="password"
+                type="password"
+                input
+                placeholder="密码"
+              >
+            </div>
+            <div>
+              <p color-red text-xs ml-2>
+                {{ isErrorPassWordLabel }}
+              </p>
+            </div>
+            <div
+              :class="isErrorPassWordLabel ? '' : 'mt-4'"
             >
-          </div>
-          <div>
-            <p color-red text-xs ml-2>
-              {{ isErrorPassWordLabel }}
-            </p>
-          </div>
-          <div
-            :class="isErrorPassWordLabel ? '' : 'mt-4'"
-          >
-            <input
+              <input
+                v-if="!isRegisted"
+                v-model="rePassword"
+                type="password"
+                input
+                placeholder="再次确认密码"
+              >
+            </div>
+            <div
               v-if="!isRegisted"
-              v-model="rePassword"
-              type="password"
-              input
-              placeholder="再次确认密码"
+              mt-4
+              flex
             >
-          </div>
-          <div
-            v-if="!isRegisted"
-            mt-4
-            flex
-          >
-            <input
-              v-model="emailCode"
-              type="text"
-              input
-              mr-8
-              placeholder="邮箱验证码"
-            >
-            <button
-              btn
-              :disabled="!allowSendEmail"
-              rounded-lg
-              @click="sendEmailToGetCode"
-            >
-              {{ sendEmailLabel }}
-            </button>
-          </div>
-          <div flex mt-20 justify-between items-center>
-            <button
-              btn
-              :disabled="isBtnDisabled"
-              @click="submitUserInfo"
-            >
-              {{ loginLabel }}
-            </button>
-            <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+              <input
+                v-model="emailCode"
+                type="text"
+                input
+                mr-8
+                placeholder="邮箱验证码"
+              >
+              <button
+                btn
+                :disabled="!allowSendEmail"
+                rounded-lg
+                @click="sendEmailToGetCode"
+              >
+                {{ sendEmailLabel }}
+              </button>
+            </div>
+            <div flex mt-20 justify-between items-center>
+              <button
+                btn
+                :disabled="isBtnDisabled"
+                @click="submitUserInfo"
+              >
+                {{ loginLabel }}
+              </button>
+              <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+            </div>
           </div>
         </div>
+        <div class="column" />
       </div>
-      <div class="column" />
     </div>
   </div>
 </template>
