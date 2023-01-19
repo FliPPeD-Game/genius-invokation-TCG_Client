@@ -1,0 +1,29 @@
+<script setup lang="ts">
+import TCGLogo from '/logo/tcg_logo.png'
+</script>
+
+<template>
+  <div
+    w-full h-18
+    flex justify-between items-center
+    bg="black/40"
+    text-white
+    px-8
+  >
+    <img :src="TCGLogo" alt="TCGLogo" h-18>
+    <div
+      flex
+      justify-between items-center
+      color-gray
+      hover:color="#F9F4E3"
+      cursor-pointer
+      transition duration-200 ease-in-out
+      @click="$router.push('/user/login')"
+    >
+      <div mr-4 text-xl>
+        登&nbsp;录
+      </div>
+      <div i-carbon:user-avatar-filled w10 h10 />
+    </div>
+  </div>
+</template>
