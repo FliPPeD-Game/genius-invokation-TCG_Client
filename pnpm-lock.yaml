@@ -12,6 +12,7 @@ specifiers:
   axios: ^1.2.2
   element-plus: ^2.2.28
   eslint: ^8.31.0
+  floating-vue: 2.0.0-beta.20
   jsdom: ^20.0.3
   pnpm: ^7.22.0
   sass: ^1.57.1
@@ -33,6 +34,7 @@ dependencies:
   '@vueuse/core': 9.10.0_vue@3.2.45
   axios: 1.2.2
   element-plus: 2.2.28_vue@3.2.45
+  floating-vue: 2.0.0-beta.20_vue@3.2.45
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
 
@@ -274,8 +276,18 @@ packages:
       - supports-color
     dev: true
 
+  /@floating-ui/core/0.3.1:
+    resolution: {integrity: sha512-ensKY7Ub59u16qsVIFEo2hwTCqZ/r9oZZFh51ivcLGHfUwTn8l1Xzng8RJUe91H/UP8PeqeBronAGx0qmzwk2g==}
+    dev: false
+
   /@floating-ui/core/1.1.0:
     resolution: {integrity: sha512-zbsLwtnHo84w1Kc8rScAo5GMk1GdecSlrflIbfnEBJwvTSj1SL6kkOYV+nHraMCPEy+RNZZUaZyL8JosDGCtGQ==}
+    dev: false
+
+  /@floating-ui/dom/0.1.10:
+    resolution: {integrity: sha512-4kAVoogvQm2N0XE0G6APQJuCNuErjOfPW8Ux7DFxh8+AfugWflwVJ5LDlHOwrwut7z/30NUvdtHzQ3zSip4EzQ==}
+    dependencies:
+      '@floating-ui/core': 0.3.1
     dev: false
 
   /@floating-ui/dom/1.1.0:
@@ -2490,6 +2502,16 @@ packages:
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
+
+  /floating-vue/2.0.0-beta.20_vue@3.2.45:
+    resolution: {integrity: sha512-N68otcpp6WwcYC7zP8GeJqNZVdfvS7tEY88lwmuAHeqRgnfWx1Un8enzLxROyVnBDZ3TwUoUdj5IFg+bUT7JeA==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@floating-ui/dom': 0.1.10
+      vue: 3.2.45
+      vue-resize: 2.0.0-alpha.1_vue@3.2.45
+    dev: false
 
   /follow-redirects/1.15.2:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -4950,6 +4972,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-resize/2.0.0-alpha.1_vue@3.2.45:
+    resolution: {integrity: sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.2.45
+    dev: false
 
   /vue-router/4.1.6_vue@3.2.45:
     resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}

@@ -16,7 +16,9 @@ declare module '@vue/runtime-core' {
     LoginDialog: typeof import('./src/components/index/header/login-dialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TcgDialog: typeof import('./src/components/custom/tcg-dialog/tcg-dialog.vue')['default']
+    TcgAcater: typeof import('./src/components/custom/tcg-acater/index.vue')['default']
+    TcgAvatar: typeof import('./src/components/custom/tcg-avatar/index.vue')['default']
+    TcgDialog: typeof import('./src/components/custom/tcg-dialog/index.vue')['default']
     UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
   }
 }
