@@ -4,7 +4,7 @@ usePageIcon()
 </script>
 
 <template>
-  <div overflow-hidden>
+  <!-- <div overflow-hidden>
     <router-view v-slot="{ Component, route }">
       <transition
         :name="route.name as string || 'fade'"
@@ -13,7 +13,8 @@ usePageIcon()
         <component :is="Component" />
       </transition>
     </router-view>
-  </div>
+  </div> -->
+  <router-view />
 </template>
 
 <style>

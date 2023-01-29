@@ -7,14 +7,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BgComp: typeof import('./src/components/index/bgComp/index.vue')['default']
     BgWrap: typeof import('./src/components/index/bgWrap/index.vue')['default']
     Character: typeof import('./src/components/cards/character/index.vue')['default']
+    DialogLogin: typeof import('./src/components/index/header/dialog-login.vue')['default']
     Footer: typeof import('./src/components/index/footer/index.vue')['default']
     Header: typeof import('./src/components/index/header/index.vue')['default']
-    Login: typeof import('./src/components/index/login/index.vue')['default']
+    Login: typeof import('./src/components/index/header/login.vue')['default']
+    LoginDialog: typeof import('./src/components/index/header/login-dialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TcgDialog: typeof import('./src/components/custom/tcg-dialog/tcg-dialog.vue')['default']
+    UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
   }
 }

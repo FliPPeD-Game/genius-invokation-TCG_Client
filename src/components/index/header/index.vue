@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import TCGLogo from '/logo/tcg_logo.png'
-const route = useRoute()
-const router = useRouter()
+// const route = useRoute()
+// const router = useRouter()
+const dialogOpen = ref(false)
 
 const pushToLoginOrBack = () => {
-  if (route.name === 'user-login')
-    router.back()
-  else
-    router.push('/user/login')
+  dialogOpen.value = true
 }
 </script>
 
@@ -27,9 +25,10 @@ const pushToLoginOrBack = () => {
       @click="pushToLoginOrBack"
     >
       <div>
-        {{ route.name === 'user-login' ? '返&nbsp;回' : '登&nbsp;录' }}
+        登&nbsp;录
       </div>
       <!-- <div i-carbon:user-avatar-filled w10 h10 /> -->
     </div>
   </div>
+  <dialog-login v-model="dialogOpen" />
 </template>
