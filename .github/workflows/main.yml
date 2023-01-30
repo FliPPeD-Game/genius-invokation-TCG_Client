@@ -37,11 +37,11 @@ jobs:
       - name: SCP Files
         uses: appleboy/scp-action@v0.0.1
         with:
-          host: ${{ REMOTE_DATA.REMOTE_HOST }}
-          username: ${{ REMOTE_DATA.REMOTE_NAME }}
-          password: ${{ REMOTE_DATA.REMOTE_PASSWORD }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_NAME }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
           port: 22
           source: "dist/"
-          target: ${{ REMOTE_DATA.REMOTE_TARGET }}
+          target: ${{ secrets.REMOTE_TARGET }}
           
           
