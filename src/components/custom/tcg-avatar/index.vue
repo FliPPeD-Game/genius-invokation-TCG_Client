@@ -2,7 +2,7 @@
 import defaultAvatar from './defaultAvatar.png'
 
 interface Props {
-  src: string
+  src?: string
   alt?: string
 }
 

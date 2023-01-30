@@ -11,7 +11,7 @@ declare interface UserInterface {
   email: string
   gender: 0 | 1 | 2
   lockFlag: boolean
-  nickName: string
+  nickname: string
 }
 
 declare interface LoginType {

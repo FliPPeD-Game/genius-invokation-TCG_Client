@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus'
 import 'element-plus/es/components/message/style/css'
 import { saveLoginToken } from '@/request/token'
 
-const router = useRouter()
+const emit = defineEmits(['isLogin'])
 
 const password = ref('')
 const emailCode = ref('')
@@ -98,8 +98,7 @@ const submitUserInfo = async () => {
   if (res.code === 200) {
     // 登录成功
     saveLoginToken(res.data.Authorization)
-    localStorage.setItem('userInfo', JSON.stringify(res.data.userInfo))
-    router.push({ path: '/' })
+    USER_INFO.value = res.data.userInfo
   }
   else {
     // 登录失败
@@ -109,6 +108,7 @@ const submitUserInfo = async () => {
       type: 'error',
     })
   }
+  emit('isLogin')
 }
 
 // 登录按钮disabled判断

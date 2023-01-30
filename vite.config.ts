@@ -37,6 +37,7 @@ export default ({ mode }: { mode: string }) => {
           './src/hooks/*',
           './src/utils',
           './src/api/*',
+          './src/stores/*',
         ],
         vueTemplate: true,
       }),
