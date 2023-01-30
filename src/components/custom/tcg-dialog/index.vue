@@ -15,6 +15,8 @@ watch(
       dialog.value?.showModal()
       dialog.value?.addEventListener('click', () => {
         dialog.value?.close()
+      })
+      dialog.value?.addEventListener('close', () => {
         dialogVisible.value = false
       })
     }
@@ -26,9 +28,9 @@ watch(
   <dialog
     id="dialog"
     ref="dialog"
-    p-0 shadow-2xl bg="white/0"
+    p-0 bg="white/0"
   >
-    <div @click.stop shadow-2xl>
+    <div @click.stop>
       <slot />
     </div>
   </dialog>
