@@ -19,6 +19,25 @@ const nickName = USER_INFO.value?.nickname
 const logout = () => {
   USER_INFO.value = {} as UserInterface
 }
+
+const menuList = [
+  {
+    icon: 'i-carbon:user',
+    name: '个人中心',
+  },
+  {
+    icon: 'i-ph-cards',
+    name: '卡牌配置',
+  },
+  {
+    icon: 'i-material-symbols-swords-outline',
+    name: '战斗记录',
+  },
+  {
+    icon: 'i-carbon:settings',
+    name: '设置',
+  },
+]
 </script>
 
 <template>
@@ -40,30 +59,31 @@ const logout = () => {
         z-20 absolute
         w-14 h-14
         transition-all duration-400
-        group-hover="~ scale-120 translate-y-5 translate-x--5"
+        group-hover="scale-120 translate-y-5 translate-x--5"
       />
       <div
-        hidden
-        opacity-0
-        transition-all duration-400 delay-200
-        group-hover="block opacity-100"
+        scale-0 opacity-0
+        right--26 top--34
+        transition-all duration-400 delay-200 ease-in-out
+        group-hover="scale-100 opacity-100 right-0 top-0"
         z-19
-        absolute right-0
+        absolute
         bg-white rounded-lg
-        w-60
         shadow-2xl
         pt-10 pb-5 px-5
         flex="col center"
       >
         <div
           text="#18191c xl"
-          font-bold
+          font-bold w-full
           cursor-default
         >
           {{ nickName }}
         </div>
         <div m="t-5 b-2" bg="#e3e5e7" w-50 h=".25" />
         <div
+          v-for="item in menuList"
+          :key="item.name"
           p-2 rounded-lg
           w-full
           inline-flex
@@ -71,26 +91,11 @@ const logout = () => {
           c-gray
           hover:bg="#e3e5e7"
         >
-          <div i-carbon:user />
+          <div :class="item.icon" />
           <span
             ml-2
           >
-            个人中心
-          </span>
-        </div>
-        <div
-          p-2 rounded-lg
-          w-full
-          inline-flex
-          cursor-pointer
-          c-gray
-          hover:bg="#e3e5e7"
-        >
-          <div i-ph-cards />
-          <span
-            ml-2
-          >
-            卡牌配置
+            {{ item.name }}
           </span>
         </div>
         <div my-2 bg="#e3e5e7" w-50 h=".25" />
