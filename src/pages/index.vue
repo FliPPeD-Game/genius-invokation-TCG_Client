@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import type { UseWebSocketReturn } from '@vueuse/core'
+import { getWs } from '@/request/ws'
+
+let ws!: UseWebSocketReturn<any>
+const createRoom = () => {
+  ws = getWs()
+}
 </script>
 
 <template>
@@ -21,7 +28,7 @@
         <button btn>
           配置卡牌
         </button>
-        <button btn my-5>
+        <button btn my-5 @click="createRoom">
           创建房间
         </button>
         <button btn>

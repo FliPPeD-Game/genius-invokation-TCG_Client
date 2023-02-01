@@ -99,6 +99,11 @@ const submitUserInfo = async () => {
     // 登录成功
     saveLoginToken(res.data.Authorization)
     USER_INFO.value = res.data.userInfo
+    ElMessage({
+      showClose: true,
+      message: res.message,
+      type: 'success',
+    })
   }
   else {
     // 登录失败

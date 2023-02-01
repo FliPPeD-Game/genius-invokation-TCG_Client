@@ -37,6 +37,8 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getIsRegisteredByEmail: typeof import('./src/api/user')['getIsRegisteredByEmail']
+  const getLoginToken: typeof import('./src/request/token')['getLoginToken']
+  const getWs: typeof import('./src/request/ws')['getWs']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -85,10 +87,13 @@ declare global {
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
   const registerByEmail: typeof import('./src/api/user')['registerByEmail']
+  const removeLoginToken: typeof import('./src/request/token')['removeLoginToken']
+  const request: typeof import('./src/request/index')['default']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveDirective: typeof import('vue')['resolveDirective']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
+  const saveLoginToken: typeof import('./src/request/token')['saveLoginToken']
   const sendEmail: typeof import('./src/api/user')['sendEmail']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
@@ -319,6 +324,8 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getIsRegisteredByEmail: UnwrapRef<typeof import('./src/api/user')['getIsRegisteredByEmail']>
+    readonly getLoginToken: UnwrapRef<typeof import('./src/request/token')['getLoginToken']>
+    readonly getWs: UnwrapRef<typeof import('./src/request/ws')['getWs']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -367,10 +374,13 @@ declare module 'vue' {
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly registerByEmail: UnwrapRef<typeof import('./src/api/user')['registerByEmail']>
+    readonly removeLoginToken: UnwrapRef<typeof import('./src/request/token')['removeLoginToken']>
+    readonly request: UnwrapRef<typeof import('./src/request/index')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveDirective: UnwrapRef<typeof import('vue')['resolveDirective']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly saveLoginToken: UnwrapRef<typeof import('./src/request/token')['saveLoginToken']>
     readonly sendEmail: UnwrapRef<typeof import('./src/api/user')['sendEmail']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
