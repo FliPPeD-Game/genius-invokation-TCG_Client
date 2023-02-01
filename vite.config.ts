@@ -39,6 +39,7 @@ export default ({ mode }: { mode: string }) => {
           './src/utils',
           './src/api/*',
           './src/stores/*',
+          './src/request/*',
         ],
         vueTemplate: true,
         resolvers: [ElementPlusResolver()],
