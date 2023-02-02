@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { UseWebSocketReturn } from '@vueuse/core'
-import { getWs } from '@/request/ws'
+import playBefore from '/play/after.png'
+// import type { UseWebSocketReturn } from '@vueuse/core'
+// import { getWs } from '@/request/ws'
 
-let ws!: UseWebSocketReturn<any>
-const createRoom = () => {
-  ws = getWs()
-}
+// let ws!: UseWebSocketReturn<any>
+// const createRoom = () => {
+//   ws = getWs()
+// }
 </script>
 
 <template>
@@ -25,17 +26,20 @@ const createRoom = () => {
         items-center
         h-100vh
       >
-        <button btn>
-          配置卡牌
-        </button>
-        <button btn my-5 @click="createRoom">
-          创建房间
-        </button>
-        <button btn>
-          加入房间
-        </button>
+        <div flex>
+          <img :src="playBefore" alt="">
+          <div
+            mx-10
+            text="white 2xl"
+            cursor-pointer
+          >
+            开始游戏
+          </div>
+          <img rotate-180 :src="playBefore" alt="">
+        </div>
       </div>
       <Footer />
     </div>
   </div>
 </template>
+
