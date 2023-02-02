@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import playBefore from '/play/after.png'
-// import type { UseWebSocketReturn } from '@vueuse/core'
-// import { getWs } from '@/request/ws'
+import type { UseWebSocketReturn } from '@vueuse/core'
+import { getWs } from '@/request/ws'
 
-// let ws!: UseWebSocketReturn<any>
-// const createRoom = () => {
-//   ws = getWs()
-// }
+let ws!: UseWebSocketReturn<any>
+const createRoom = () => {
+  ws = getWs()
+  ws.send(JSON.stringify({
+    command: 'create',
+    message: 'created',
+  }))
+}
 </script>
 
 <template>
@@ -32,6 +36,7 @@ import playBefore from '/play/after.png'
             mx-10
             text="white 2xl"
             cursor-pointer
+            @click="createRoom"
           >
             开始游戏
           </div>
