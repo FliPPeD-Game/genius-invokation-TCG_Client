@@ -6,6 +6,7 @@
       href="https://github.com/FliPPeDround/genius-invokation-TCG"
       target="_blank"
       title="GitHub"
+      c-white
     />
   </nav>
 </template>
