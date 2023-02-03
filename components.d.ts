@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     BgWrap: typeof import('./src/components/index/bgWrap/index.vue')['default']
     Character: typeof import('./src/components/cards/character/index.vue')['default']
     DialogLogin: typeof import('./src/components/index/header/dialog-login.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
