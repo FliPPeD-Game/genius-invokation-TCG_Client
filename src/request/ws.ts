@@ -2,7 +2,7 @@ import { ElMessage } from 'element-plus'
 import { getLoginToken } from './token'
 
 export const getWs = () => {
-  const ws = useWebSocket(
+  return useWebSocket(
     'ws://127.0.0.1:8888/websocket',
     {
       autoReconnect: {
@@ -14,5 +14,4 @@ export const getWs = () => {
       },
       protocols: [getLoginToken()],
     })
-  return ws
 }
