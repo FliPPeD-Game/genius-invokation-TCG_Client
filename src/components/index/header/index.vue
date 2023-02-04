@@ -2,6 +2,7 @@
 import { ElTooltip } from 'element-plus'
 import 'element-plus/es/components/tooltip/style/css'
 import TCGLogo from '/logo/tcg_logo.png'
+import { removeLoginToken } from '@/request/token'
 // const route = useRoute()
 // const router = useRouter()
 const dialogOpen = ref(false)
@@ -18,6 +19,7 @@ const nickName = USER_INFO.value?.nickname
 
 const logout = () => {
   USER_INFO.value = {} as UserInterface
+  removeLoginToken()
 }
 
 const menuList = [
