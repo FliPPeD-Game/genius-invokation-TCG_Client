@@ -27,4 +27,4 @@
 
 ### Desktop
 - First you will need to install Rust and Tauri app, you can follow [this guide](https://tauri.app/v1/guides/getting-started/prerequisites).
-- Run interactive tests using `pnpm dev:tauri`
+- Run interactive tests using `pnpm dev:t`
