@@ -8,6 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
+import DiffCompiler from 'vite-plugin-diff-compiler'
 // import { qrcode } from 'vite-plugin-qrcode'
 
 export default ({ mode }: { mode: string }) => {
@@ -20,6 +21,7 @@ export default ({ mode }: { mode: string }) => {
       },
     },
     plugins: [
+      DiffCompiler(),
       Vue({
         reactivityTransform: true,
       }),

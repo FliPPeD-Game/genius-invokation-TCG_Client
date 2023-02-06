@@ -1,7 +1,7 @@
 {
   "build": {
-    "beforeBuildCommand": "pnpm build",
-    "beforeDevCommand": "pnpm vite --port 7777",
+    "beforeBuildCommand": "pnpm build -m tauri",
+    "beforeDevCommand": "pnpm vite --port 7777 -m tauri",
     "devPath": "http://localhost:7777",
     "distDir": "../dist"
   },
