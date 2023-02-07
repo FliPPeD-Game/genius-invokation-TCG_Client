@@ -9,7 +9,9 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BgWrap: typeof import('./src/components/index/bgWrap/index.vue')['default']
     Character: typeof import('./src/components/cards/character/index.vue')['default']
+    DialogEnterRoom: typeof import('./src/components/index/enterRoom/dialog-enter-room.vue')['default']
     DialogLogin: typeof import('./src/components/index/header/dialog-login.vue')['default']
+    EnterRoom: typeof import('./src/components/index/enterRoom/enter-room.vue')['default']
     Footer: typeof import('./src/components/index/footer/index.vue')['default']
     Header: typeof import('./src/components/index/header/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

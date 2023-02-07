@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import playBefore from '/play/after.png'
-import type { UseWebSocketReturn } from '@vueuse/core'
-import { getWs } from '@/request/ws'
 
-let ws!: UseWebSocketReturn<any>
-const createRoom = () => {
-  ws = getWs()
-  ws.send(JSON.stringify({
-    command: 'create',
-    message: 'created',
-  }))
+const dialogOpen = ref(false)
+const openDialog = () => {
+  dialogOpen.value = true
 }
 </script>
 
@@ -36,7 +30,8 @@ const createRoom = () => {
             mx-10
             text="white 2xl"
             cursor-pointer
-            @click="createRoom"
+            animate-pulse
+            @click="openDialog"
           >
             开始游戏
           </div>
@@ -45,7 +40,7 @@ const createRoom = () => {
             mx-10
             text="white 2xl"
             cursor-pointer
-            @click="createRoom"
+            @click="openDialog"
           >
             开始游戏
           </div>
@@ -55,6 +50,7 @@ const createRoom = () => {
       </div>
       <Footer />
     </div>
+    <dialog-enter-room v-model="dialogOpen" />
   </div>
 </template>
 
