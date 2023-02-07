@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { ElTooltip } from 'element-plus'
+import { onBeforeMount } from 'vue'
+const route = useRoute()
+const router = useRouter()
+
+// 初始化
+onBeforeMount(() => {
+  if (route.fullPath === '/user')
+    router.replace('/user/userInfo')
+})
 
 // 用户信息
 const userInfo = USER_INFO
@@ -9,7 +18,7 @@ const menuList = [
   {
     icon: 'i-carbon:user',
     name: '个人信息',
-    path: '/user',
+    path: '/user/userInfo',
   },
   {
     icon: 'i-carbon:settings',
@@ -17,9 +26,6 @@ const menuList = [
     path: '/user/setting',
   },
 ]
-
-// 路由
-const route = useRoute()
 </script>
 
 <template>
@@ -35,6 +41,7 @@ const route = useRoute()
       >
         <button
           btn
+          @click="router.push('/')"
         >
           {{ '< 返回大厅' }}
         </button>
@@ -73,6 +80,7 @@ const route = useRoute()
             c-dark
             hover:bg="#cfd1d2"
             hover:border-r="5px solid #736868"
+            @click="router.push(item.path)"
           >
             <div :class="item.icon" />
             <span
@@ -87,66 +95,7 @@ const route = useRoute()
           flex-1
           ml10
         >
-          <!-- <router-view /> -->
-          <div>
-            <input
-              v-model="userInfo.nickname"
-              mt-5
-              type="text"
-              input
-              placeholder="用户名"
-            >
-            <div h-10 mt-2>
-              <p color-red text-xs ml-2>
-                用户名不能为空
-              </p>
-            </div>
-            <input
-              v-model="userInfo.email"
-              type="text"
-              input
-              placeholder="邮箱"
-            >
-            <div h-10 mt-2>
-              <p color-red text-xs ml-2>
-                邮箱不能为空
-              </p>
-            </div>
-            <input
-              v-model="userInfo.gender"
-              type="text"
-              input
-              placeholder="性别"
-            >
-            <div h-10 mt-2>
-              <p color-red text-xs ml-2>
-                性别不能为空
-              </p>
-            </div>
-            <input
-              v-model="userInfo.password"
-              type="text"
-              input
-              placeholder="密码"
-            >
-            <div h-10 mt-2>
-              <p color-red text-xs ml-2>
-                密码不能为空
-              </p>
-            </div>
-            <div flex mt-10 justify-between items-center>
-              <button
-                btn
-              >
-                xxxx
-              </button>
-              <button
-                btn
-              >
-                保存个人信息
-              </button>
-            </div>
-          </div>
+          <router-view />
         </div>
       </div>
     </div>

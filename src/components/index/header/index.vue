@@ -4,7 +4,7 @@ import 'element-plus/es/components/tooltip/style/css'
 import TCGLogo from '/logo/tcg_logo.png'
 import { removeLoginToken } from '@/request/token'
 // const route = useRoute()
-// const router = useRouter()
+const router = useRouter()
 const dialogOpen = ref(false)
 const openLoginDialog = () => {
   dialogOpen.value = true
@@ -26,18 +26,22 @@ const menuList = [
   {
     icon: 'i-carbon:user',
     name: '个人中心',
+    path: '/user',
   },
   {
     icon: 'i-ph-cards',
     name: '卡牌配置',
+    path: '',
   },
   {
     icon: 'i-material-symbols-swords-outline',
     name: '战斗记录',
+    path: '',
   },
   {
     icon: 'i-carbon:settings',
     name: '设置',
+    path: '',
   },
 ]
 </script>
@@ -92,6 +96,7 @@ const menuList = [
           cursor-pointer
           c-gray
           hover:bg="#e3e5e7"
+          @click="router.push(item.path)"
         >
           <div :class="item.icon" />
           <span
