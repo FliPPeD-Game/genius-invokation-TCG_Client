@@ -10,9 +10,6 @@ onBeforeMount(() => {
     router.replace('/user/userInfo')
 })
 
-// 用户信息
-const userInfo = USER_INFO
-
 // 菜单信息
 const menuList = [
   {
@@ -52,7 +49,7 @@ const menuList = [
           effect="dark"
         >
           <tcg-avatar
-            :src="userInfo.avatar"
+            :src="USER_INFO.avatar"
             w-15 h-15
           />
         </ElTooltip>

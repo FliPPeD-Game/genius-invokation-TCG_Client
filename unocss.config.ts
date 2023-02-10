@@ -28,6 +28,8 @@ export default defineConfig({
     ['ipt', 'flex-1 appearance-none border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm rounded-lg text-lg transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-#9acfce focus:border-transparent'],
     ['flex-center', 'flex justify-center items-center'],
     ['card', 'rounded-2 card-box p4'],
+    ['radio-lab', 'pl-2 pr-2 cursor-pointer'],
+    ['radio-ipt', 'cursor-pointer'],
   ],
   presets: [
     presetUno(),
