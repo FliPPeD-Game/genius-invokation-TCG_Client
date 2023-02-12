@@ -3,30 +3,56 @@
 
 <template>
   <div
-    w-50vw h-50vh
-    bg-white
-    grid="~ cols-1 rows-2"
+    text="white 2xl"
+    bg-black
+    overflow-hidden
+    rounded-xl
   >
     <div
-      bg="[url(header/mondstadt.jpg)] center cover"
-      opacity-60
-      flex-center
-      hover="opacity-100"
+      class="group"
+      relative
+      overflow-hidden
     >
-      <button animate-pulse>
-        创建房间
-      </button>
+      <img
+        src="/header/mondstadt.jpg"
+        transition duration-300 ease-in-out
+        opacity-80
+        group-hover="opacity-100 scale-140 z-200"
+        vertical-mid
+        w-65vw h-20vh
+      >
+      <div absolute z-200000 top="50%" text-center w-65vw>
+        <button>
+          创建房间
+        </button>
+      </div>
     </div>
     <div
-      bg="[url(header/liyue.jpg)] center cover opacity-60"
-      opacity-60
-      flex-center
-      hover="opacity-100"
+      class="group"
+      relative
+      overflow-hidden
     >
-      <span>
-        <input ipt type="text">
+      <img
+        src="/header/liyue.jpg"
+        transition duration-300 ease-in-out
+        overflow-hidden
+        opacity-80
+        group-hover="opacity-100 scale-140"
+        w-65vw h-20vh
+        vertical-mid
+      >
+      <div
+        absolute
+        z-30000
+        top="30%"
+        w-65vw
+        flex="~ col"
+        justify-center
+        items-center
+      >
+        <input ipt type="text" w="50%" placeholder="请输入房间号">
         <button>加入房间</button>
-      </span>
+      </div>
     </div>
   </div>
 </template>

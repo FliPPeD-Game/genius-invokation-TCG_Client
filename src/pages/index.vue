@@ -32,6 +32,7 @@ const openDialog = () => {
             cursor-pointer
             animate-pulse
             @click="openDialog"
+            hover:animate-none
           >
             开始游戏
           </div>
@@ -42,7 +43,7 @@ const openDialog = () => {
             cursor-pointer
             @click="openDialog"
           >
-            开始游戏
+            aaaaa
           </div>
           <!-- #diff-compiler-end: tauri -->
           <img rotate-180 :src="playBefore" alt="">
