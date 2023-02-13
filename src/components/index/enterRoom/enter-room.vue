@@ -16,15 +16,15 @@
       <img
         src="/header/mondstadt.jpg"
         transition duration-300 ease-in-out
-        opacity-80
-        group-hover="opacity-100 scale-140 z-200"
-        vertical-mid
+        opacity-70
+        group-hover="opacity-100 scale-140"
         w-65vw h-20vh
+        object-cover object-center
       >
       <div absolute z-200000 top="50%" text-center w-65vw>
-        <button>
+        <div cursor-pointer>
           创建房间
-        </button>
+        </div>
       </div>
     </div>
     <div
@@ -36,10 +36,10 @@
         src="/header/liyue.jpg"
         transition duration-300 ease-in-out
         overflow-hidden
-        opacity-80
+        opacity-70
         group-hover="opacity-100 scale-140"
         w-65vw h-20vh
-        vertical-mid
+        object-cover object-center
       >
       <div
         absolute
