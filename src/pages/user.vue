@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ElTooltip } from 'element-plus'
+// import { ElTooltip } from 'element-plus'
 import { onBeforeMount } from 'vue'
 const route = useRoute()
 const router = useRouter()
@@ -27,7 +27,7 @@ const menuList = [
 
 <template>
   <div overflow-hidden>
-    <BgWrap />
+    <!-- <BgWrap /> -->
     <div
       w-100vw h-100vh
       relative
@@ -42,7 +42,7 @@ const menuList = [
         >
           {{ '< 返回大厅' }}
         </button>
-        <ElTooltip
+        <!-- <ElTooltip
           visible
           placement="left"
           content="欢迎来到个人中心~"
@@ -52,7 +52,7 @@ const menuList = [
             :src="USER_INFO.avatar"
             w-15 h-15
           />
-        </ElTooltip>
+        </ElTooltip> -->
       </div>
       <div
         flex
@@ -91,6 +91,7 @@ const menuList = [
           overflow-y-scroll
           flex-1
           ml10
+          relative
         >
           <router-view />
         </div>
