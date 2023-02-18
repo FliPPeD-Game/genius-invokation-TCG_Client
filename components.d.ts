@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     Character: typeof import('./src/components/cards/character/index.vue')['default']
     DialogEnterRoom: typeof import('./src/components/index/enterRoom/dialog-enter-room.vue')['default']
     DialogLogin: typeof import('./src/components/index/header/dialog-login.vue')['default']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     EnterRoom: typeof import('./src/components/index/enterRoom/enter-room.vue')['default']
     Footer: typeof import('./src/components/index/footer/index.vue')['default']
     Header: typeof import('./src/components/index/header/index.vue')['default']

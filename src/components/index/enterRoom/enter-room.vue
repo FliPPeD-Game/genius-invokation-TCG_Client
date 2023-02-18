@@ -1,4 +1,17 @@
 <script setup lang="ts">
+const roomID = ref('')
+const router = useRouter()
+
+const handleRoomID = () => {
+  if (roomID.value.length !== 6)
+    return
+  router.push({
+    path: '/room',
+    query: {
+      roomID: roomID.value,
+    },
+  })
+}
 </script>
 
 <template>
@@ -50,8 +63,14 @@
         justify-center
         items-center
       >
-        <input ipt type="text" w="50%" placeholder="请输入房间号">
-        <button>加入房间</button>
+        <input
+          v-model="roomID"
+          ipt
+          type="text"
+          w="30%"
+          placeholder="加入房间，请输入房间号"
+          @input="handleRoomID"
+        >
       </div>
     </div>
   </div>
