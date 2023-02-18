@@ -24,15 +24,15 @@ const openDialog = () => {
         items-center
         h-100vh
       >
-        <div flex>
-          <img :src="playBefore" alt="">
+        <div flex items-center>
+          <img :src="playBefore" scale-110>
           <div
             mx-10
             text="white 2xl"
             cursor-pointer
             animate-pulse
-            @click="openDialog"
             hover:animate-none
+            @click="openDialog"
           >
             开始游戏
           </div>
@@ -46,7 +46,7 @@ const openDialog = () => {
             aaaaa
           </div>
           <!-- #diff-compiler-end: tauri -->
-          <img rotate-180 :src="playBefore" alt="">
+          <img rotate-180 :src="playBefore" scale-110>
         </div>
       </div>
       <Footer />
