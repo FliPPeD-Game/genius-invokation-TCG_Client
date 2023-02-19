@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import { ElTooltip } from 'element-plus'
-import { onBeforeMount } from 'vue'
 const route = useRoute()
 const router = useRouter()
 
@@ -68,7 +66,7 @@ const menuList = [
             v-for="item in menuList"
             :key="item.name"
             :class="item.path === route.fullPath && 'isActive'"
-            pt-5 pb-5 pl-10 pr-10
+            py-5 px-10
             mb-1
             w-full
             rounded-1
@@ -76,7 +74,7 @@ const menuList = [
             cursor-pointer
             c-dark
             hover:bg="#cfd1d2"
-            hover:border-r="5px solid #736868"
+            hover:border-r="5 solid #736868"
             @click="router.push(item.path)"
           >
             <div :class="item.icon" />
