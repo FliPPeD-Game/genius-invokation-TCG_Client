@@ -12,6 +12,20 @@ const handleRoomID = () => {
     },
   })
 }
+
+const enterRoom = async () => {
+  const { data, send } = ws()
+
+  const sendCommand = JSON.stringify({
+    command: 'create',
+  })
+
+  send(sendCommand)
+  // 打印每一次的数据
+  watchEffect(() => {
+    console.log(JSON.parse(data.value))
+  })
+}
 </script>
 
 <template>
@@ -35,7 +49,7 @@ const handleRoomID = () => {
         object-cover object-center
       >
       <div absolute z-200000 top="50%" text-center w-65vw>
-        <div cursor-pointer>
+        <div cursor-pointer @click="enterRoom">
           创建房间
         </div>
       </div>

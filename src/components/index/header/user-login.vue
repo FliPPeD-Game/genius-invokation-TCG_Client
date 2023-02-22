@@ -141,7 +141,7 @@ const isBtnDisabled = computed(() => {
           <input
             v-model="emailValue"
             type="text"
-            input
+            ipt
             placeholder="邮箱"
             @change="emailChange"
             @input="emailInput"
@@ -158,7 +158,7 @@ const isBtnDisabled = computed(() => {
           <input
             v-model="password"
             type="password"
-            input
+            ipt
             placeholder="密码"
           >
         </div>
@@ -175,7 +175,7 @@ const isBtnDisabled = computed(() => {
             v-model="rePassword"
 
             type="password"
-            input
+            ipt
             placeholder="再次确认密码"
           >
         </div>
@@ -188,7 +188,7 @@ const isBtnDisabled = computed(() => {
           <input
             v-model="emailCode"
             type="text"
-            input
+            ipt
             mr-8
             placeholder="邮箱验证码"
           >

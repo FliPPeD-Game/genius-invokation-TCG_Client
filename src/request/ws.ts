@@ -1,9 +1,11 @@
 import { ElMessage } from 'element-plus'
 import { getLoginToken } from './token'
 
-export const getWs = () => {
+const url = `${import.meta.env.VITE_BASE_URL.replace('http', 'ws')}websocket`
+
+export default () => {
   return useWebSocket(
-    'ws://127.0.0.1:8888/websocket',
+    url,
     {
       autoReconnect: {
         retries: 3,
@@ -15,3 +17,11 @@ export const getWs = () => {
       protocols: [getLoginToken()],
     })
 }
+
+// const ws = new WebSocket(url, [getLoginToken()])
+
+// ws.onopen = function () {
+//   ElMessage.success('WebSocket connected')
+// }
+
+// export default ws
