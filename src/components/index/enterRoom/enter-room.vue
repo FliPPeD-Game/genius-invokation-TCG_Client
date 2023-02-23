@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useEnterRoom } from '@/hooks/useEnterRoom'
+
 const roomID = ref('')
 const router = useRouter()
 
@@ -14,13 +16,7 @@ const handleRoomID = () => {
 }
 
 const enterRoom = async () => {
-  const { data, send } = ws()
-
-  const sendCommand = JSON.stringify({
-    command: 'create',
-  })
-
-  send(sendCommand)
+  const data = useEnterRoom()
   // 打印每一次的数据
   watchEffect(() => {
     console.log(JSON.parse(data.value))
