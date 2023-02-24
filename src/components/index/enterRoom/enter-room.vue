@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import { useCreateRoom, useEnterRoom } from '@/hooks/useRoom'
-
 const roomID = ref('')
 // const router = useRouter()
 

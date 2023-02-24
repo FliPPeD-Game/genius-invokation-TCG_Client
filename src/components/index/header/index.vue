@@ -14,8 +14,6 @@ const openLoginDialog = () => {
 const isLogin = computed(() => {
   return Boolean(USER_INFO.value?.email)
 })
-const avatarSrc = USER_INFO.value?.avatar
-const nickName = USER_INFO.value?.nickname
 
 const logout = () => {
   USER_INFO.value = {} as UserInterface
@@ -61,7 +59,7 @@ const menuList = [
       relative
     >
       <tcg-avatar
-        :src="avatarSrc"
+        :src="USER_INFO.avatar"
         z-20 absolute
         w-14 h-14
         transition-all duration-400
@@ -84,7 +82,7 @@ const menuList = [
           font-bold w-full
           cursor-default
         >
-          {{ nickName }}
+          {{ USER_INFO.nickname }}
         </div>
         <div m="t-5 b-2" bg="#e3e5e7" w-50 h=".25" />
         <div
