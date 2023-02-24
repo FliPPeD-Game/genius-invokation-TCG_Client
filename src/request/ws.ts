@@ -1,9 +1,10 @@
 import { ElMessage } from 'element-plus'
 import { getLoginToken } from './token'
 
-const url = `${import.meta.env.VITE_BASE_URL.replace('http', 'ws')}websocket`
+const url = `${import.meta.env.VITE_BASE_URL.replace('http', 'ws')}/websocket`
 
 export default () => {
+  console.log(url)
   return useWebSocket(
     url,
     {

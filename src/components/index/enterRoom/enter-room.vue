@@ -1,22 +1,17 @@
 <script setup lang="ts">
-import { useEnterRoom } from '@/hooks/useEnterRoom'
+// import { useCreateRoom, useEnterRoom } from '@/hooks/useRoom'
 
 const roomID = ref('')
-const router = useRouter()
+// const router = useRouter()
 
 const handleRoomID = () => {
   if (roomID.value.length !== 6)
     return
-  router.push({
-    path: '/room',
-    query: {
-      roomID: roomID.value,
-    },
-  })
+  const data = useEnterRoom(roomID.value)
 }
 
 const enterRoom = async () => {
-  const data = useEnterRoom()
+  const data = useCreateRoom()
   // 打印每一次的数据
   watchEffect(() => {
     console.log(JSON.parse(data.value))
