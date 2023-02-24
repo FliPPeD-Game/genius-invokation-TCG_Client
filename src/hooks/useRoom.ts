@@ -3,19 +3,16 @@ import { Peer } from 'peerjs'
 export const useCreateRoom = () => {
   const { data, send } = ws()
   const peer = new Peer()
-  let peerId = ''
+  let sendCommand
 
   peer.on('open', (id) => {
     console.log(`My peer ID is: ${id}`)
-    peerId = id
+    sendCommand = JSON.stringify({
+      command: 'createRoom',
+      peerId: id,
+    })
+    send(sendCommand)
   })
-
-  const sendCommand = JSON.stringify({
-    command: 'createRoom',
-    peerId,
-  })
-
-  send(sendCommand)
 
   return data
 }

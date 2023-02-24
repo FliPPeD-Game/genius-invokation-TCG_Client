@@ -5,13 +5,21 @@ const roomID = ref('')
 const handleRoomID = () => {
   if (roomID.value.length !== 6)
     return
+  console.log('send')
   const data = useEnterRoom(roomID.value)
+  watchEffect(() => {
+    if (!data.value)
+      return
+    console.log(JSON.parse(data.value))
+  })
 }
 
 const enterRoom = async () => {
   const data = useCreateRoom()
   // 打印每一次的数据
   watchEffect(() => {
+    if (!data.value)
+      return
     console.log(JSON.parse(data.value))
   })
 }

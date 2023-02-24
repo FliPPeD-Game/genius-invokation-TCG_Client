@@ -4,7 +4,6 @@ import { getLoginToken } from './token'
 const url = `${import.meta.env.VITE_BASE_URL.replace('http', 'ws')}/websocket`
 
 export default () => {
-  console.log(url)
   return useWebSocket(
     url,
     {
