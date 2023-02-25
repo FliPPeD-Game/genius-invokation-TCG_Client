@@ -2,5 +2,6 @@
 </script>
 
 <template>
-  <player-content />
+  <opponent-player />
+  <own-player />
 </template>
