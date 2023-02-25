@@ -21,13 +21,13 @@ const activeType = computed(() => {
     >
 
     <div
-      absolute top-10 left-71
+      absolute top-9 left-70
       text="5xl font-bold white"
     >
       {{ playerInfo.nickname }}
     </div>
     <div
-      absolute top-27 left-71
+      absolute top-27 left-70
       text="4xl font-bold #E5AD68"
     >
       {{ activeType }}
