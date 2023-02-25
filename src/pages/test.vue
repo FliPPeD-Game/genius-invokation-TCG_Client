@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  <tcg-avatar />
+  <player-content />
 </template>

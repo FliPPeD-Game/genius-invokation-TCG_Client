@@ -1,27 +1,58 @@
 <script setup lang="ts">
+import { Peer } from 'peerjs'
+
 const roomID = ref('')
-// const router = useRouter()
+const router = useRouter()
 
 const handleRoomID = () => {
   if (roomID.value.length !== 6)
     return
+
+  if (roomID.value.length > 6)
+    roomID.value = roomID.value.slice(0, 6)
+
   console.log('send')
   const data = useEnterRoom(roomID.value)
   watchEffect(() => {
     if (!data.value)
       return
     console.log(JSON.parse(data.value))
+    const { peerID } = JSON.parse(data.value)
+    console.log(peerID)
+    const peer = new Peer()
+    const peerConnect = peer.connect(peerID)
+    peerConnect.on('open', () => {
+      peerConnect.send('hello')
+    })
   })
 }
 
 const enterRoom = async () => {
-  const data = useCreateRoom()
-  // 打印每一次的数据
-  watchEffect(() => {
-    if (!data.value)
-      return
-    console.log(JSON.parse(data.value))
-  })
+  const res = {
+    code: 200,
+    data: {
+      roomID: '123456',
+      peerID: '123456',
+    },
+  }
+  router.push(`room/${encodeURIComponent(res.data.roomID)}`)
+  // const data = useCreateRoom()
+  // // 打印每一次的数据
+  // watchEffect(() => {
+  //   if (!data.value)
+  //     return
+  //   const res = JSON.parse(data.value)
+  //   if (res.code === 200) {
+  //     console.log(res)
+  //     router.push({
+  //       path: '/room',
+  //       query: {
+  //         roomID: res.data.roomID,
+  //         peerID: res.data.peerID,
+  //       },
+  //     })
+  //   }
+  // })
 }
 </script>
 

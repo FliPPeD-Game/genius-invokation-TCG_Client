@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     EnterRoom: typeof import('./src/components/index/enterRoom/enter-room.vue')['default']
     Footer: typeof import('./src/components/index/footer/index.vue')['default']
     Header: typeof import('./src/components/index/header/index.vue')['default']
+    PlayerContent: typeof import('./src/components/room/playerContent/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TcgAvatar: typeof import('./src/components/custom/tcg-avatar/index.vue')['default']
