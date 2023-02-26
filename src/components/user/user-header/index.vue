@@ -17,8 +17,8 @@ const headerImg = getHeaderImg(areaName)
     <Starport
       port="avatar-componet"
       absolute
-      w-20 h-20
-      left-40 top-38
+      w-25 h-25
+      left-40 top-36
     >
       <tcg-avatar
         :src="USER_INFO.avatar"

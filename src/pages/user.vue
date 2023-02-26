@@ -23,7 +23,7 @@ const menuList = [
     w-full
     flex h-full
   >
-    <div w-50 bg-blue>
+    <div w="52.5" bg-blue>
       <div
         v-for="item in menuList"
         :key="item.name"
