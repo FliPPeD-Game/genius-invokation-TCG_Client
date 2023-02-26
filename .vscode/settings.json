@@ -12,11 +12,14 @@
     "cryo",
     "dendro",
     "diona",
+    "inazuma",
     "liyue",
     "mondstadt",
     "peerjs",
     "pyro",
     "qrcode",
+    "sumeru",
     "taze"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

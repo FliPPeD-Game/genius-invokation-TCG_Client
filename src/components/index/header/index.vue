@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Starport } from 'vue-starport'
 import { ElTooltip } from 'element-plus'
 import 'element-plus/es/components/tooltip/style/css'
 import TCGLogo from '/logo/tcg_logo.png'
@@ -58,13 +59,15 @@ const menuList = [
       w-14 h-14
       relative
     >
-      <tcg-avatar
-        :src="USER_INFO.avatar"
-        z-20 absolute
-        w-14 h-14
-        transition-all duration-400
-        group-hover="scale-120 translate-y-5 translate-x--5"
-      />
+      <Starport port="avatar-componet">
+        <tcg-avatar
+          :src="USER_INFO.avatar"
+          z-20 absolute
+          w-14 h-14
+          transition-all duration-400
+          group-hover="scale-120 translate-y-5 translate-x--5"
+        />
+      </Starport>
       <div
         scale-0 opacity-0
         right--26 top--34

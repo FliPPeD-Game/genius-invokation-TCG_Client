@@ -19,8 +19,11 @@ declare module '@vue/runtime-core' {
     PlayerContent: typeof import('./src/components/room/playerContent/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Starport: typeof import('vue-starport')['Starport']
+    StarportCarrier: typeof import('vue-starport')['StarportCarrier']
     TcgAvatar: typeof import('./src/components/custom/tcg-avatar/index.vue')['default']
     TcgDialog: typeof import('./src/components/custom/tcg-dialog/index.vue')['default']
+    UserHeader: typeof import('./src/components/user/user-header/index.vue')['default']
     UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
   }
 }

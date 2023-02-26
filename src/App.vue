@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { StarportCarrier } from 'vue-starport'
 usePageIcon()
 </script>
 
 <template>
-  <router-view />
+  <StarportCarrier>
+    <router-view />
+  </StarportCarrier>
 </template>
