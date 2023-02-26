@@ -59,11 +59,9 @@ const menuList = [
       w-14 h-14
       relative
     >
-      <Starport port="avatar-componet">
+      <Starport port="avatar-componet" w-14 h-14 absolute z-20>
         <tcg-avatar
           :src="USER_INFO.avatar"
-          z-20 absolute
-          w-14 h-14
           transition-all duration-400
           group-hover="scale-120 translate-y-5 translate-x--5"
         />

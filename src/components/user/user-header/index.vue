@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { Starport } from 'vue-starport'
 const areaName = translateAreaName(USER_INFO.value?.country)
 
@@ -17,11 +17,11 @@ const headerImg = getHeaderImg(areaName)
     <Starport
       port="avatar-componet"
       absolute
+      w-20 h-20
       left-40 top-38
     >
       <tcg-avatar
         :src="USER_INFO.avatar"
-        w-20 h-20
       />
     </Starport>
   </header>
