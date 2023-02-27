@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { Starport } from 'vue-starport'
+import TCGLogo from '/logo/tcg_logo.png'
+
+const router = useRouter()
+
 const areaName = translateAreaName(USER_INFO.value?.country)
 
 function getHeaderImg(areaName: IconNameType) {
@@ -13,6 +17,17 @@ const headerImg = getHeaderImg(areaName)
 
 <template>
   <header relative>
+    <div
+      fixed w-full h-15
+      flex justify-between items-center
+      px-8 z-999
+      backdrop-blur-sm
+      shadow-sm
+      text="white 3xl"
+    >
+      <img :src="TCGLogo" alt="TCGLogo" h-18 cursor-pointer @click="router.push('/')">
+      <div i-carbon-home cursor-pointer @click="router.push('/')" />
+    </div>
     <img :src="headerImg">
     <Starport
       port="avatar-componet"

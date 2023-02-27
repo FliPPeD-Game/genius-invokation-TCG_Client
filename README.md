@@ -16,6 +16,10 @@
 🏗 Working in Progress
 </pre>
 
+<p align='center'>
+  <img src='home.png' alt=''/>
+<p>
+
 ## 💻 Development
 
 - Clone this repository
