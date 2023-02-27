@@ -16,7 +16,7 @@ const headerImg = getHeaderImg(areaName)
 </script>
 
 <template>
-  <header relative>
+  <header relative h="48.5">
     <div
       fixed w-full h-15
       flex justify-between items-center
@@ -31,6 +31,7 @@ const headerImg = getHeaderImg(areaName)
     <img :src="headerImg">
     <Starport
       port="avatar-componet"
+      z-99
       absolute
       w-25 h-25
       left-40 top-36

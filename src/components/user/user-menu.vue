@@ -6,38 +6,56 @@ const router = useRouter()
 const menuList = [
   {
     icon: 'i-carbon:user',
-    name: '个人信息',
+    name: '个人中心',
     path: '/user',
+  },
+  {
+    icon: 'i-ph-cards',
+    name: '卡牌配置',
+    path: '',
+  },
+  {
+    icon: 'i-material-symbols-swords-outline',
+    name: '战斗记录',
+    path: '',
   },
   {
     icon: 'i-carbon:settings',
     name: '设置',
-    path: '/user/setting',
+    path: '',
   },
 ]
 </script>
 
 <template>
-  <div w="52.5" bg-blue pt-10>
+  <div
+    w="52.5"
+    pt-10
+    backdrop-blur-3xl
+    text="#C1D4DA"
+    font-bold
+    flex="~ col" items-center
+    subpixel-antialiased
+  >
     <div
       v-for="item in menuList"
       :key="item.name"
       class="group"
-      relative
-      flex justify-center items-center
+      w-40
+      flex justify-start
+      py-2 px-5
+      my-1
+      rounded-lg
       cursor-pointer
-      hover:bg-blue-100
+      hover:bg="white/20"
+      transition-all duration-300
+      :class="route.path === item.path ? 'c-white bg-white/50' : ''"
       @click="router.push(item.path)"
     >
-      <i :class="item.icon" class="text-2xl" />
-      <div>{{ item.name }}</div>
-      <div
-        class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"
-        :class="{
-          'opacity-100': route.fullPath === item.path,
-          'opacity-0': route.fullPath !== item.path,
-        }"
-      />
+      <div :class="item.icon" font-bold />
+      <div pl-2>
+        {{ item.name }}
+      </div>
     </div>
   </div>
 </template>
