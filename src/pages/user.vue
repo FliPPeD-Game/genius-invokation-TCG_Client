@@ -2,11 +2,11 @@
 </script>
 
 <template>
-  <div h-full overflow-hidden>
-    <user-header />
+  <div h-full overflow-hidden flex="~ col">
+    <user-header h-50 />
     <div
       flex="~ 1"
-      w-full h-full
+      w-full
       bg="[url(/bg/mondstadt.jpeg)] cover"
     >
       <user-menu />
