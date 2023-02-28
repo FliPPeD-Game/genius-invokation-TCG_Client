@@ -12,7 +12,7 @@ const menuList = [
   {
     icon: 'i-ph-cards',
     name: '卡牌配置',
-    path: '',
+    path: '/user/cards',
   },
   {
     icon: 'i-material-symbols-swords-outline',

@@ -22,7 +22,8 @@ declare module '@vue/runtime-core' {
     StarportCarrier: typeof import('vue-starport')['StarportCarrier']
     TcgAvatar: typeof import('./src/components/custom/tcg-avatar/index.vue')['default']
     TcgDialog: typeof import('./src/components/custom/tcg-dialog/index.vue')['default']
-    UserHeader: typeof import('./src/components/user/user-header/index.vue')['default']
+    User: typeof import('./src/components/user/index.vue')['default']
+    UserHeader: typeof import('./src/components/user/user-header.vue')['default']
     UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
     UserMenu: typeof import('./src/components/user/user-menu.vue')['default']
   }

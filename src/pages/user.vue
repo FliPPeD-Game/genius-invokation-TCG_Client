@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const areaName = translateAreaName(USER_INFO.value?.country)
+const bgImg = `/bg/${areaName}.jpeg`
 </script>
 
 <template>
@@ -7,12 +9,15 @@
     <div
       flex="~ 1"
       w-full
-      bg="[url(/bg/mondstadt.jpeg)] cover"
+      :style="{
+        background: `url(${bgImg}) no-repeat center/cover`,
+      }"
     >
       <user-menu />
-      <div flex-1 backdrop-blur-126px>
-        <router-view />
-      </div>
+      <router-view
+        flex-1
+        backdrop-blur-126px
+      />
     </div>
   </div>
 </template>
