@@ -16,7 +16,6 @@ declare module '@vue/runtime-core' {
     Header: typeof import('./src/components/index/header/index.vue')['default']
     OpponentPlayer: typeof import('./src/components/room/playerContent/opponent-player.vue')['default']
     OwnPlayer: typeof import('./src/components/room/playerContent/own-player.vue')['default']
-    PlayerContent: typeof import('./src/components/room/playerContent/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Starport: typeof import('vue-starport')['Starport']

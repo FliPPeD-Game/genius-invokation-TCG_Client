@@ -16,7 +16,10 @@ const headerImg = getHeaderImg(areaName)
 </script>
 
 <template>
-  <header relative h="48.5">
+  <header
+    relative
+    h="50"
+  >
     <div
       fixed w-full h-15
       flex justify-between items-center
@@ -28,16 +31,17 @@ const headerImg = getHeaderImg(areaName)
       <img :src="TCGLogo" alt="TCGLogo" h-18 cursor-pointer @click="router.push('/')">
       <div i-carbon-home cursor-pointer @click="router.push('/')" />
     </div>
-    <img :src="headerImg">
+    <img :src="headerImg" w-full>
     <Starport
       port="avatar-componet"
       z-99
       absolute
-      w-25 h-25
-      left-40 top-36
+      w-26 h-26
+      left-40 top-37
     >
       <tcg-avatar
         :src="USER_INFO.avatar"
+        backdrop-blur-64
       />
     </Starport>
   </header>
