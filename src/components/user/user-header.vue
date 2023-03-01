@@ -4,6 +4,7 @@ import TCGLogo from '/logo/tcg_logo.png'
 import { ElImage, ElPopover } from 'element-plus'
 // import ColorThief from 'colorthief'
 
+const reload = inject('reload')
 const router = useRouter()
 
 const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
@@ -32,8 +33,15 @@ const handleAvatarShow = async () => {
   avatarList.value = (await getAllAvatars()).data
 }
 
-const handleAvatarClick = async (avatar: AvatarInfo) => {
-
+const handleAvatarClick = async (url: string, country: string) => {
+  USER_INFO.value.avatarInfo = {
+    url,
+    country,
+  }
+  reload()
+  // const { data } = await updateAvatar(src, country)
+  // if (data) {
+  // }
 }
 </script>
 
@@ -76,7 +84,7 @@ const handleAvatarClick = async (avatar: AvatarInfo) => {
             w-26 h-26
           >
             <tcg-avatar
-              :src="USER_INFO.avatarInfo.url"
+              :src="USER_INFO?.avatarInfo.url"
               backdrop-blur-64
             />
           </Starport>
@@ -118,7 +126,7 @@ const handleAvatarClick = async (avatar: AvatarInfo) => {
               border="double 4 gray-400"
               cursor-pointer
               hover="shadow-xl transform scale-120"
-              @click="handleAvatarClick(avatar)"
+              @click="handleAvatarClick(avatar.src, avatars.country)"
             />
           </el-tab-pane>
         </el-tabs>
