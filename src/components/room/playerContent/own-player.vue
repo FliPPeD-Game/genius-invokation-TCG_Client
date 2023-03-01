@@ -15,7 +15,7 @@ const activeType = computed(() => {
   <div relative>
     <img :src="ownImg" alt="player_content_bg_img">
     <img
-      :src="playerInfo.avatar"
+      :src="playerInfo.avatarInfo.url"
       alt="player_avatar_img"
       absolute top="8.5" left="27"
     >
