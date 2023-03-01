@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const areaName = translateAreaName(USER_INFO.value?.country)
+const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
 const bgImg = `/bg/${areaName}.jpeg`
 </script>
 

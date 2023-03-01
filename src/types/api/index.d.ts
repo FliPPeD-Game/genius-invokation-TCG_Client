@@ -19,3 +19,13 @@ declare interface LoginType {
   Authorization: string
   userInfo: UserInterface
 }
+
+declare interface AvatarType {
+  name: string
+  src: string
+}
+
+declare interface AvatarListType {
+  country: string
+  imageInfo: AvatarType[]
+}

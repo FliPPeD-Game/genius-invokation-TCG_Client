@@ -39,7 +39,7 @@ export default ({ mode }: { mode: string }) => {
         dirs: [
           './src/hooks/**/*',
           './src/utils',
-          './src/api/*',
+          './src/api/**/*',
           './src/stores/*',
           './src/request/*',
         ],
