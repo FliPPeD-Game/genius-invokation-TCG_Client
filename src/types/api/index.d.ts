@@ -29,6 +29,6 @@ declare interface AvatarType {
 }
 
 declare interface AvatarListType {
-  country: string
+  country: AreaChName
   imageInfo: AvatarType[]
 }

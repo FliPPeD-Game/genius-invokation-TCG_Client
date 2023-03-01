@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
-import 'element-plus/es/components/message/style/css'
 import { saveLoginToken } from '@/request/token'
 
 const emit = defineEmits(['isLogin'])

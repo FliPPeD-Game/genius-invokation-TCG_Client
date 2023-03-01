@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { Starport } from 'vue-starport'
-import { ElTooltip } from 'element-plus'
-import 'element-plus/es/components/tooltip/style/css'
 import TCGLogo from '/logo/tcg_logo.png'
 import { removeLoginToken } from '@/request/token'
 // const route = useRoute()

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { Starport } from 'vue-starport'
 import TCGLogo from '/logo/tcg_logo.png'
-import { ElImage, ElPopover } from 'element-plus'
 // import ColorThief from 'colorthief'
 
-const reload = inject('reload')
+const reload = inject('reload') as () => void
 const router = useRouter()
 
 const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
