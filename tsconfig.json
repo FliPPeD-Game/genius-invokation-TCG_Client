@@ -1,5 +1,7 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "module": "ESNext",
     "target": "es2016",
@@ -22,11 +24,10 @@
       "@/*": ["src/*"]
     }
   },
-  "vueCompilerOptions": {
-    "plugins": [
-      "@vue-macros/volar/define-model",
-      "@vue-macros/volar/define-slots"
-    ]
-  },
-  "exclude": ["dist", "node_modules", "src-tauri"]
+  "exclude": ["dist", "node_modules", "src-tauri"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

@@ -7,7 +7,10 @@ declare namespace API {
 }
 
 declare interface UserInterface {
-  avatar: string
+  avatarInfo: {
+    country: AreaChName
+    url: string
+  }
   email: string
   gender: 0 | 1 | 2
   lockFlag: boolean

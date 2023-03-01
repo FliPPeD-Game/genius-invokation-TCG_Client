@@ -10,9 +10,6 @@ const reload = () => {
   })
 }
 
-let a = 1
-a = '21'
-
 provide('reload', reload)
 </script>
 

@@ -10,7 +10,7 @@ const router = useRouter()
 const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
 const headerImg = `/header/${areaName}.jpg`
 
-const avatarList = ref([] as AvatarList[])
+const avatarList = ref([] as AvatarListType[])
 
 // const colorThief = new ColorThief()
 // // 获取图片主色调
@@ -33,7 +33,7 @@ const handleAvatarShow = async () => {
   avatarList.value = (await getAllAvatars()).data
 }
 
-const handleAvatarClick = async (url: string, country: string) => {
+const handleAvatarClick = async (url: string, country: AreaChName) => {
   USER_INFO.value.avatarInfo = {
     url,
     country,
