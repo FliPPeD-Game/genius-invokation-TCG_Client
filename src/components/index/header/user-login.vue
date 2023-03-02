@@ -145,11 +145,16 @@ const isBtnDisabled = computed(() => {
             @input="emailInput"
           >
         </div>
-        <div v-if="isErrorEmail">
-          <p color-red text-xs ml-2>
-            邮箱格式错误
-          </p>
-        </div>
+        <Transition
+          enter-active-class="animate__animated animate__fadeInDown"
+          leave-active-class="animate__animated animate__fadeOutUp"
+        >
+          <div v-if="isErrorEmail">
+            <p color-red text-xs ml-2>
+              邮箱格式错误
+            </p>
+          </div>
+        </Transition>
         <div
           :class="isErrorEmail ? '' : 'mt-4'"
         >
@@ -168,37 +173,47 @@ const isBtnDisabled = computed(() => {
         <div
           :class="isErrorPassWordLabel ? '' : 'mt-4'"
         >
-          <input
-            v-if="!isRegisted"
-            v-model="rePassword"
-
-            type="password"
-            ipt
-            placeholder="再次确认密码"
+          <Transition
+            enter-active-class="animate__animated animate__fadeInLeft"
+            leave-active-class="animate__animated animate__fadeOutLeft"
           >
-        </div>
-        <div
-          v-if="!isRegisted"
+            <input
+              v-if="!isRegisted"
+              v-model="rePassword"
 
-          mt-4
-          flex
+              type="password"
+              ipt
+              placeholder="再次确认密码"
+            >
+          </Transition>
+        </div>
+        <Transition
+          enter-active-class="animate__animated animate__fadeInLeft"
+          leave-active-class="animate__animated animate__fadeOutLeft"
         >
-          <input
-            v-model="emailCode"
-            type="text"
-            ipt
-            mr-8
-            placeholder="邮箱验证码"
+          <div
+            v-if="!isRegisted"
+
+            mt-4
+            flex
           >
-          <button
-            btn
-            :disabled="!allowSendEmail"
-            rounded-lg
-            @click="sendEmailToGetCode"
-          >
-            {{ sendEmailLabel }}
-          </button>
-        </div>
+            <input
+              v-model="emailCode"
+              type="text"
+              ipt
+              mr-8
+              placeholder="邮箱验证码"
+            >
+            <button
+              btn
+              :disabled="!allowSendEmail"
+              rounded-lg
+              @click="sendEmailToGetCode"
+            >
+              {{ sendEmailLabel }}
+            </button>
+          </div>
+        </Transition>
         <div flex mt-20 justify-between items-center>
           <button
             btn
@@ -207,7 +222,12 @@ const isBtnDisabled = computed(() => {
           >
             {{ loginLabel }}
           </button>
-          <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+          <Transition
+            enter-active-class="animate__animated animate__fadeInRight"
+            leave-active-class="animate__animated animate__fadeOutRight"
+          >
+            <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+          </Transition>
         </div>
       </div>
     </div>

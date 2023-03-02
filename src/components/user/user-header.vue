@@ -37,10 +37,13 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
     url,
     country,
   }
-  reload()
-  // const { data } = await updateAvatar(src, country)
-  // if (data) {
-  // }
+  const res = (await updateUserInfo({
+    ...USER_INFO.value,
+    password: '',
+    rePassword: '',
+  })).code
+  if (res === 200)
+    reload()
 }
 </script>
 
