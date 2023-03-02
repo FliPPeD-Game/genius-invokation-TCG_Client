@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
-const bgImg = `/bg/${areaName}.jpeg`
+const bgImg = `/header/${areaName}.jpg`
 </script>
 
 <template>
@@ -13,8 +13,9 @@ const bgImg = `/bg/${areaName}.jpeg`
         background: `url(${bgImg}) no-repeat center/cover`,
       }"
     >
-      <user-menu />
+      <user-menu bg="black/20" />
       <router-view
+        bg="black/20"
         flex-1
         backdrop-blur-126px
       />

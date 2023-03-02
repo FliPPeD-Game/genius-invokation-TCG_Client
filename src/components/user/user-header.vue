@@ -2,6 +2,7 @@
 import { Starport } from 'vue-starport'
 import TCGLogo from '/logo/tcg_logo.png'
 // import ColorThief from 'colorthief'
+import { ElImage } from 'element-plus'
 
 const reload = inject('reload') as () => void
 const router = useRouter()

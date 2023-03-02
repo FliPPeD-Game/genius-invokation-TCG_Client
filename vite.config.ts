@@ -22,6 +22,7 @@ export default ({ mode }: { mode: string }) => {
     },
     plugins: [
       DiffCompiler(),
+
       Vue({
         reactivityTransform: true,
       }),

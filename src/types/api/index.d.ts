@@ -16,6 +16,7 @@ declare interface UserInterface {
   lockFlag: boolean
   nickname: string
   password: string
+  rePassword: string
 }
 
 declare interface LoginType {
