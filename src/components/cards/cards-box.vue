@@ -14,7 +14,7 @@ const computedClassName = (index: number) => {
     class="character-box"
     relative
     w-80 h-40
-    bg="white/30" shadow-lg backdrop-blur-126px
+    bg="white/20" shadow-lg
     rounded-xl border="xl"
     transition duration-300 ease-in-out
     hover:shadow-2xl
