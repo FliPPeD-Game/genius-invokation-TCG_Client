@@ -14,7 +14,6 @@ const getCharacterSrc = (name: string): string => {
 
 <template>
   <div
-    relative
     w-30 h-52
   >
     <img

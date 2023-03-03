@@ -36,16 +36,6 @@ const openDialog = () => {
           >
             开始游戏
           </div>
-          <!-- #diff-compiler-start: tauri -->
-          <div
-            mx-10
-            text="white 2xl"
-            cursor-pointer
-            @click="openDialog"
-          >
-            aaaaa
-          </div>
-          <!-- #diff-compiler-end: tauri -->
           <img rotate-180 :src="playBefore" scale-110>
         </div>
       </div>
