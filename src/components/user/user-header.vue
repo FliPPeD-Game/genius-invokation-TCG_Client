@@ -40,8 +40,6 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
   }
   const res = (await updateUserInfo({
     ...USER_INFO.value,
-    password: '',
-    rePassword: '',
   })).code
   if (res === 200)
     reload()

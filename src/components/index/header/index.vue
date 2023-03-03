@@ -65,7 +65,7 @@ const menuList = [
         group-hover="scale-120 translate-y-5 translate-x--5"
       >
         <tcg-avatar
-          :src="USER_INFO.avatarInfo.url"
+          :src="USER_INFO?.avatarInfo?.url"
           cursor-pointer
         />
       </Starport>
