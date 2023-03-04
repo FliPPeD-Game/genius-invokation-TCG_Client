@@ -104,7 +104,6 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
       >
         <el-tabs
           tab-position="left"
-          stretch
           h-60
         >
           <el-tab-pane
@@ -145,7 +144,10 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
   display: none;            /* Safari and Chrome */
 }
 .avatar-popover {
-  border-radius: 8px;
+  border-radius: 0.75rem !important;
   padding: 2px;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 0 !important;
+  backdrop-filter: blur(100px);
 }
 </style>
