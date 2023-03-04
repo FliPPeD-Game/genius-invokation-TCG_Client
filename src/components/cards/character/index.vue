@@ -1,15 +1,15 @@
 <script setup lang="ts">
 interface Props {
-  character: string
-  hp: number
+  src: string
+  hp?: number
 }
-const { character, hp } = defineProps<Props>()
+const { hp, src } = defineProps<Props>()
 
-const getCharacterSrc = (name: string): string => {
-  const picModules = import.meta.glob('./assets/*.png', { eager: true })
-  const path = `./assets/${name}.png`
-  return (picModules[path]! as { default: string }).default
-}
+// const getCharacterSrc = (name: string): string => {
+//   const picModules = import.meta.glob('./assets/*.png', { eager: true })
+//   const path = `./assets/${name}.png`
+//   return (picModules[path]! as { default: string }).default
+// }
 </script>
 
 <template>
@@ -17,10 +17,9 @@ const getCharacterSrc = (name: string): string => {
     w-30 h-52
   >
     <img
-      :src="getCharacterSrc(character)"
+      :src="src"
       absolute
       w-30 h-52
-
       align-bottom
     >
     <div
@@ -31,7 +30,7 @@ const getCharacterSrc = (name: string): string => {
       bg="[url(/cards/card_bg.png)] no-repeat cover"
     />
     <div
-      v-if="hp > 0"
+      v-if="hp !== undefined"
       class="hp-icon"
       absolute
       flex justify-center items-center

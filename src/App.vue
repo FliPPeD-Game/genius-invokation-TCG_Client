@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { StarportCarrier } from 'vue-starport'
+
+import userCard from 'mock/cardsInfo'
+
+USER_CARDS.value = userCard
+
 usePageIcon()
 
 const isRouter = ref(true)

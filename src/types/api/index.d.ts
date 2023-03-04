@@ -15,8 +15,15 @@ declare interface UserInterface {
   gender: 0 | 1 | 2
   lockFlag: boolean
   nickname: string
-  password: string
-  rePassword: string
+}
+
+declare interface CardInterface {
+  index: number
+  configs: [
+    {
+      roleCardInfo: any
+    },
+  ]
 }
 
 declare interface LoginType {

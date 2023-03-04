@@ -9,9 +9,11 @@ const USER_INFO: RemovableRef<UserInterface> = useStorage('userInfo', {
   gender: 0,
   lockFlag: false,
   nickname: '',
-  password: '',
 })
+
+const USER_CARDS: RemovableRef<any> = useStorage('userCards', {})
 
 export {
   USER_INFO,
+  USER_CARDS,
 }

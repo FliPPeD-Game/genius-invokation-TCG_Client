@@ -18,6 +18,7 @@ export default ({ mode }: { mode: string }) => {
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`,
+        'mock/': `${path.resolve(__dirname, 'mock')}/`,
       },
     },
     plugins: [
@@ -41,7 +42,7 @@ export default ({ mode }: { mode: string }) => {
           './src/hooks/**/*',
           './src/utils',
           './src/api/**/*',
-          './src/stores/*',
+          './src/stores/**/*',
           './src/request/*',
         ],
         vueTemplate: true,

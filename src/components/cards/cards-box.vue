@@ -1,4 +1,12 @@
 <script setup lang="ts">
+interface Props {
+  title: string
+  cards: any[]
+  isDefault: boolean
+}
+
+const { title, cards, isDefault } = defineProps<Props>()
+
 const computedClassName = (index: number) => {
   if (index === 0)
     return 'first-character-box'
@@ -18,7 +26,7 @@ const computedClassName = (index: number) => {
     rounded-xl border="xl"
     transition duration-300 ease-in-out
     hover:shadow-2xl
-    flex
+    flex block
     c-white
     cursor="pointer"
   >
@@ -28,23 +36,28 @@ const computedClassName = (index: number) => {
       translate-y--5 translate-x--2
     >
       <Character
-        v-for="item in 3"
-        :key="item"
+        v-for="(item, index) in cards"
+        :key="index"
         absolute
-        :class="computedClassName(item - 1)"
-        character="Keqing"
-        :hp="0"
+        :class="computedClassName(index)"
+        :src="item.resource"
         transition duration-300 ease-in-out
       />
     </div>
     <div w-40 flex="~ col" justify-center pl-6>
       <div class="text-2xl font-bold">
-        Keqing
+        {{ title }}
       </div>
       <div class="text-sm mt-2">
         Lv. 80
       </div>
     </div>
+    <div
+      v-if="isDefault"
+      i-material-symbols-swords-outline
+      absolute
+      bottom-3 right-3
+    />
   </div>
 </template>
 
