@@ -12,6 +12,17 @@ const bgImg = `/header/${areaName}.jpg`
       background: `url(${bgImg}) no-repeat center/cover`,
     }"
   >
-    <cards-box />
+    <button
+      px-8 py-4
+      rounded-full
+      inline-block
+      bg="#88abaf"
+      c-white
+      cursor-pointer
+      transition duration-200 ease-in-out
+      hover="bg-#9acfce"
+    >
+      按钮
+    </button>
   </div>
 </template>

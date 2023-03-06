@@ -15,6 +15,7 @@
         :is-default="USER_CARDS.index === index"
         :title="item.title"
         :cards="item.roleCardInfo"
+        :self-index="index"
       />
       <div>
         <div

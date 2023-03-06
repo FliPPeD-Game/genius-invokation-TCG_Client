@@ -17,15 +17,15 @@ const { hp, src } = defineProps<Props>()
     w-30 h-52
   >
     <img
+      class="animate__animated animate__fadeInDown"
       :src="src"
       absolute
       w-30 h-52
       align-bottom
     >
     <div
-      class="bg-bar"
+      class="bg-bar animate__animated animate__fadeInDown"
       w-30 h-52
-
       absolute
       bg="[url(/cards/card_bg.png)] no-repeat cover"
     />
