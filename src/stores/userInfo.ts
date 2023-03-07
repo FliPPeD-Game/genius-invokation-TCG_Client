@@ -11,7 +11,7 @@ const USER_INFO: RemovableRef<UserInterface> = useStorage('userInfo', {
   nickname: '',
 })
 
-const USER_CARDS: RemovableRef<any> = useStorage('userCards', {})
+const USER_CARDS: RemovableRef<CardInterface> = useStorage('userCards', {} as CardInterface)
 
 export {
   USER_INFO,

@@ -41,6 +41,7 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getIsRegisteredByEmail: typeof import('./src/api/user')['getIsRegisteredByEmail']
   const getLoginToken: typeof import('./src/request/token')['getLoginToken']
+  const getUserCards: typeof import('./src/api/user')['getUserCards']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -335,6 +336,7 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getIsRegisteredByEmail: UnwrapRef<typeof import('./src/api/user')['getIsRegisteredByEmail']>
     readonly getLoginToken: UnwrapRef<typeof import('./src/request/token')['getLoginToken']>
+    readonly getUserCards: UnwrapRef<typeof import('./src/api/user')['getUserCards']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>

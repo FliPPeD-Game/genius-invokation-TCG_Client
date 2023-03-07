@@ -38,10 +38,18 @@ const updateUserInfo = (userInfo: UserInterface) => {
   })
 }
 
+const getUserCards = () => {
+  return request<unknown, API.Response<CardInterface>>({
+    url: '/card/info/getUserCardInfoConfig',
+    method: 'GET',
+  })
+}
+
 export {
   getIsRegisteredByEmail,
   registerByEmail,
   sendEmail,
   loginByEmail,
   updateUserInfo,
+  getUserCards,
 }

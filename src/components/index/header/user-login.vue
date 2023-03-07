@@ -97,6 +97,7 @@ const submitUserInfo = async () => {
     // 登录成功
     saveLoginToken(res.data.Authorization)
     USER_INFO.value = res.data.userInfo
+    USER_CARDS.value = (await getUserCards()).data
     ElMessage({
       showClose: true,
       message: res.message,

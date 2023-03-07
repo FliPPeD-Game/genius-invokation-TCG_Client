@@ -13,8 +13,8 @@
         v-for="(item, index) in USER_CARDS?.configs"
         :key="index"
         :is-default="USER_CARDS.index === index"
-        :title="item.title"
-        :cards="item.roleCardInfo"
+        :title="item?.title"
+        :cards="item.roleCardInfos"
         :self-index="index"
       />
       <div>

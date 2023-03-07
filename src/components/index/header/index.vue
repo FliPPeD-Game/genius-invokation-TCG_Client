@@ -17,6 +17,7 @@ const isLogin = computed(() => {
 const logout = () => {
   USER_INFO.value = {} as UserInterface
   removeLoginToken()
+  USER_CARDS.value = {} as CardInterface
 }
 
 const menuList = [
