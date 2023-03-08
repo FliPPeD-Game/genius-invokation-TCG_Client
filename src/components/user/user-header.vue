@@ -105,12 +105,13 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
         <el-tabs
           tab-position="left"
           h-60
+          class="animate__animated animate__flipInX"
         >
           <el-tab-pane
             v-for="avatars in avatarList"
             :key="avatars.country"
             :label="avatars.country"
-            class="avatar-tabs"
+            class="avatar-tabs animate__animated animate__flipInX"
             lazy
             p-2
             grid="~ cols-4" gap-5
@@ -145,7 +146,6 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
 }
 .avatar-popover {
   border-radius: 0.75rem !important;
-  padding: 2px;
   background-color: rgba(255, 255, 255, 0.2) !important;
   border: 0 !important;
   backdrop-filter: blur(100px);

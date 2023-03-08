@@ -3,10 +3,33 @@
   border: 0 !important;
   backdrop-filter: blur(64px);
   color: white !important;
-  box-shadow: var(--el-box-shadow-light);
+  box-shadow: var(--el-box-shadow);
 }
 
 .el-message-icon--success,
 .el-message__content {
   color: white !important;
+}
+
+.el-popper .el-popper__arrow::before {
+  display: none;
+}
+
+.el-tabs__item {
+  color: white !important;
+  border-radius: 8px;
+  margin: 2px 12px 2px 0;
+  font-weight: 600 !important;
+}
+
+.el-tabs__item.is-active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.el-tabs__item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.el-tabs__active-bar {
+  display: none;
 }
