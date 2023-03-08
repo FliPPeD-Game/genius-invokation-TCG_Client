@@ -18,6 +18,10 @@ const logout = () => {
   USER_INFO.value = {} as UserInterface
   removeLoginToken()
   USER_CARDS.value = {} as CardInterface
+  ElMessage({
+    message: '已退出登录',
+    type: 'success',
+  })
 }
 
 const menuList = [

@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router'
 
 import '@unocss/reset/tailwind.css'
-import './styles/main.css'
+import './styles/main.scss'
 import 'uno.css'
 import 'animate.css'
 

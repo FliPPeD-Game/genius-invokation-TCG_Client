@@ -99,7 +99,6 @@ const submitUserInfo = async () => {
     USER_INFO.value = res.data.userInfo
     USER_CARDS.value = (await getUserCards()).data
     ElMessage({
-      showClose: true,
       message: res.message,
       type: 'success',
     })
@@ -107,7 +106,6 @@ const submitUserInfo = async () => {
   else {
     // 登录失败
     ElMessage({
-      showClose: true,
       message: res.message,
       type: 'error',
     })

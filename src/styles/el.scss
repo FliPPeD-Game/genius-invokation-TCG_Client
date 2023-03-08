@@ -1,0 +1,12 @@
+.el-message {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border: 0 !important;
+  backdrop-filter: blur(64px);
+  color: white !important;
+  box-shadow: var(--el-box-shadow-light);
+}
+
+.el-message-icon--success,
+.el-message__content {
+  color: white !important;
+}

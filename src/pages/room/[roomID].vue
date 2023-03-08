@@ -9,6 +9,10 @@ const { share } = useShare({
 
 const copyRoomID = () => {
   navigator.clipboard.writeText(props.roomID)
+  ElMessage({
+    message: '房间号已复制',
+    type: 'success',
+  })
 }
 </script>
 
@@ -43,21 +47,22 @@ const copyRoomID = () => {
       w-full h-20vh
       flex="center col"
       cursor-pointer
-      @click="copyRoomID"
     >
-      <div
-        class="group"
-        text="white 8"
-        font-600 flex
-      >
-        房间号:
-        <span
-          group-active:text-shadow-xl
-          underline="~ offset-5 opacity-10"
+      <div @click="copyRoomID">
+        <div
+          class="group"
+          text="white 8"
+          font-600 flex
         >
-          {{ props.roomID }}
-        </span>
-        <div i-carbon-copy text="3" />
+          房间号:
+          <span
+            group-active:text-shadow-xl
+            underline="~ offset-5 opacity-10"
+          >
+            {{ props.roomID }}
+          </span>
+          <div i-carbon-copy text="3" />
+        </div>
       </div>
       <div mt-5>
         <button btn mr-2 @click="share()">
