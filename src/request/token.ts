@@ -5,7 +5,8 @@ const saveLoginToken = (token: string) => {
 }
 
 const getLoginToken = () => {
-  return localStorage.getItem(TOKENNAME)
+  const token = localStorage.getItem(TOKENNAME) ?? ''
+  return token
 }
 
 const removeLoginToken = () => {

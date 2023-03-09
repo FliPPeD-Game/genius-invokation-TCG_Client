@@ -1,35 +1,25 @@
 <script setup lang="ts">
-import '@/styles/routerTransition.css'
+import { StarportCarrier } from 'vue-starport'
+
+// import userCard from 'mock/cardsInfo'
+
+// USER_CARDS.value = userCard
+
 usePageIcon()
+
+const isRouter = ref(true)
+const reload = () => {
+  isRouter.value = false
+  nextTick(() => {
+    isRouter.value = true
+  })
+}
+
+provide('reload', reload)
 </script>
 
 <template>
-  <!-- <div overflow-hidden>
-    <router-view v-slot="{ Component, route }">
-      <transition
-        :name="route.name as string || 'fade'"
-        mode="out-in"
-      >
-        <component :is="Component" />
-      </transition>
-    </router-view>
-  </div> -->
-  <router-view />
+  <StarportCarrier v-if="isRouter">
+    <router-view />
+  </StarportCarrier>
 </template>
-
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all .25s;
-}
-
-.fade-enter-from {
-
-  transform: translateY(-20vh);
-}
-
-.fade-leave-to {
-
-  transform: translateY(20vh);
-}
-</style>

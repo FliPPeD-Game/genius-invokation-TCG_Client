@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import playBefore from '/play/after.png'
+
+const dialogOpen = ref(false)
+const openDialog = () => {
+  dialogOpen.value = true
+}
 </script>
 
 <template>
@@ -18,17 +24,24 @@
         items-center
         h-100vh
       >
-        <button btn>
-          配置卡牌
-        </button>
-        <button btn my-5>
-          创建房间
-        </button>
-        <button btn>
-          加入房间
-        </button>
+        <div flex items-center>
+          <img :src="playBefore" scale-110>
+          <div
+            mx-10
+            text="white 2xl"
+            cursor-pointer
+            animate-pulse
+            hover:animate-none
+            @click="openDialog"
+          >
+            开始游戏
+          </div>
+          <img rotate-180 :src="playBefore" scale-110>
+        </div>
       </div>
       <Footer />
     </div>
+    <dialog-enter-room v-model="dialogOpen" />
   </div>
 </template>
+

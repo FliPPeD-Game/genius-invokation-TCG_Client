@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
-import 'element-plus/es/components/message/style/css'
 import { saveLoginToken } from '@/request/token'
 
-const router = useRouter()
+const emit = defineEmits(['isLogin'])
 
 const password = ref('')
 const emailCode = ref('')
@@ -98,17 +96,21 @@ const submitUserInfo = async () => {
   if (res.code === 200) {
     // 登录成功
     saveLoginToken(res.data.Authorization)
-    localStorage.setItem('userInfo', JSON.stringify(res.data.userInfo))
-    router.push({ path: '/' })
+    USER_INFO.value = res.data.userInfo
+    USER_CARDS.value = (await getUserCards()).data
+    ElMessage({
+      message: res.message,
+      type: 'success',
+    })
   }
   else {
     // 登录失败
     ElMessage({
-      showClose: true,
       message: res.message,
       type: 'error',
     })
   }
+  emit('isLogin')
 }
 
 // 登录按钮disabled判断
@@ -136,24 +138,29 @@ const isBtnDisabled = computed(() => {
           <input
             v-model="emailValue"
             type="text"
-            input
+            ipt
             placeholder="邮箱"
             @change="emailChange"
             @input="emailInput"
           >
         </div>
-        <div v-if="isErrorEmail">
-          <p color-red text-xs ml-2>
-            邮箱格式错误
-          </p>
-        </div>
+        <Transition
+          enter-active-class="animate__animated animate__fadeInDown"
+          leave-active-class="animate__animated animate__fadeOutUp"
+        >
+          <div v-if="isErrorEmail">
+            <p color-red text-xs ml-2>
+              邮箱格式错误
+            </p>
+          </div>
+        </Transition>
         <div
           :class="isErrorEmail ? '' : 'mt-4'"
         >
           <input
             v-model="password"
             type="password"
-            input
+            ipt
             placeholder="密码"
           >
         </div>
@@ -165,37 +172,47 @@ const isBtnDisabled = computed(() => {
         <div
           :class="isErrorPassWordLabel ? '' : 'mt-4'"
         >
-          <input
-            v-if="!isRegisted"
-            v-model="rePassword"
-
-            type="password"
-            input
-            placeholder="再次确认密码"
+          <Transition
+            enter-active-class="animate__animated animate__fadeInLeft"
+            leave-active-class="animate__animated animate__fadeOutLeft"
           >
-        </div>
-        <div
-          v-if="!isRegisted"
+            <input
+              v-if="!isRegisted"
+              v-model="rePassword"
 
-          mt-4
-          flex
+              type="password"
+              ipt
+              placeholder="再次确认密码"
+            >
+          </Transition>
+        </div>
+        <Transition
+          enter-active-class="animate__animated animate__fadeInLeft"
+          leave-active-class="animate__animated animate__fadeOutLeft"
         >
-          <input
-            v-model="emailCode"
-            type="text"
-            input
-            mr-8
-            placeholder="邮箱验证码"
+          <div
+            v-if="!isRegisted"
+
+            mt-4
+            flex
           >
-          <button
-            btn
-            :disabled="!allowSendEmail"
-            rounded-lg
-            @click="sendEmailToGetCode"
-          >
-            {{ sendEmailLabel }}
-          </button>
-        </div>
+            <input
+              v-model="emailCode"
+              type="text"
+              ipt
+              mr-8
+              placeholder="邮箱验证码"
+            >
+            <button
+              btn
+              :disabled="!allowSendEmail"
+              rounded-lg
+              @click="sendEmailToGetCode"
+            >
+              {{ sendEmailLabel }}
+            </button>
+          </div>
+        </Transition>
         <div flex mt-20 justify-between items-center>
           <button
             btn
@@ -204,7 +221,12 @@ const isBtnDisabled = computed(() => {
           >
             {{ loginLabel }}
           </button>
-          <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+          <Transition
+            enter-active-class="animate__animated animate__fadeInRight"
+            leave-active-class="animate__animated animate__fadeOutRight"
+          >
+            <a v-if="isRegisted" href="#">忘记密码，点我重置！</a>
+          </Transition>
         </div>
       </div>
     </div>

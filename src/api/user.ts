@@ -30,9 +30,26 @@ const loginByEmail = (email: string, password: string) => {
   })
 }
 
+const updateUserInfo = (userInfo: UserInterface) => {
+  return request<UserInterface, API.Response<UserInterface>>({
+    url: '/user/updateUserInfo',
+    method: 'POST',
+    data: userInfo,
+  })
+}
+
+const getUserCards = () => {
+  return request<unknown, API.Response<CardInterface>>({
+    url: '/card/info/getUserCardInfoConfig',
+    method: 'GET',
+  })
+}
+
 export {
   getIsRegisteredByEmail,
   registerByEmail,
   sendEmail,
   loginByEmail,
+  updateUserInfo,
+  getUserCards,
 }

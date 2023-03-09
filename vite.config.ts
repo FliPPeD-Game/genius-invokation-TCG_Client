@@ -6,7 +6,9 @@ import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
+import DiffCompiler from 'vite-plugin-diff-compiler'
 // import { qrcode } from 'vite-plugin-qrcode'
 
 export default ({ mode }: { mode: string }) => {
@@ -16,9 +18,12 @@ export default ({ mode }: { mode: string }) => {
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`,
+        'mock/': `${path.resolve(__dirname, 'mock')}/`,
       },
     },
     plugins: [
+      DiffCompiler(),
+
       Vue({
         reactivityTransform: true,
       }),
@@ -34,15 +39,19 @@ export default ({ mode }: { mode: string }) => {
         ],
         dts: true,
         dirs: [
-          './src/hooks/*',
+          './src/hooks/**/*',
           './src/utils',
-          './src/api/*',
+          './src/api/**/*',
+          './src/stores/**/*',
+          './src/request/*',
         ],
         vueTemplate: true,
+        resolvers: [ElementPlusResolver()],
       }),
 
       Components({
         dts: true,
+        resolvers: [ElementPlusResolver()],
       }),
       Unocss(),
       // qrcode(),
@@ -52,7 +61,6 @@ export default ({ mode }: { mode: string }) => {
     },
     server: {
       host: '0.0.0.0',
-      open: true,
       proxy: {
         '/api': {
           target: env.VITE_BASE_URL,

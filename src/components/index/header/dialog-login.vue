@@ -6,10 +6,14 @@ const props = defineProps<Props>()
 
 const emit = defineEmits(['update:modelValue'])
 const dialogVisible = useVModel(props, 'modelValue', emit)
+
+const handleLogin = () => {
+  dialogVisible.value = false
+}
 </script>
 
 <template>
   <tcg-dialog v-model="dialogVisible">
-    <user-login />
+    <user-login @isLogin="handleLogin" />
   </tcg-dialog>
 </template>

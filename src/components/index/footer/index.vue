@@ -3,9 +3,10 @@
     <a
       icon-btn i-carbon-logo-github
       rel="noreferrer"
-      href="https://github.com/FliPPeDround/genius-invokation-TCG"
+      href="https://github.com/FliPPeD-Game/genius-invokation-TCG_Client"
       target="_blank"
       title="GitHub"
+      c-white
     />
   </nav>
 </template>

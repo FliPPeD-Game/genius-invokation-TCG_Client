@@ -20,6 +20,9 @@ watch(
         dialogVisible.value = false
       })
     }
+    else {
+      dialog.value?.close()
+    }
   },
 )
 </script>

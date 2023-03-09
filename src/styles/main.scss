@@ -1,0 +1,18 @@
+@import url('./el.scss');
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Game Font';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/gamefont.woff) format('woff');
+}

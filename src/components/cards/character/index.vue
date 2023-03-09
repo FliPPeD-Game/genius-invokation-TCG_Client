@@ -1,33 +1,36 @@
 <script setup lang="ts">
 interface Props {
-  character: string
-  hp: number
+  src: string
+  hp?: number
 }
-const { character, hp } = defineProps<Props>()
+const { hp, src } = defineProps<Props>()
 
-const getCharacterSrc = (name: string): string => {
-  const picModules = import.meta.glob('./assets/*.png', { eager: true })
-  const path = `./assets/${name}.png`
-  return (picModules[path]! as { default: string }).default
-}
+// const getCharacterSrc = (name: string): string => {
+//   const picModules = import.meta.glob('./assets/*.png', { eager: true })
+//   const path = `./assets/${name}.png`
+//   return (picModules[path]! as { default: string }).default
+// }
 </script>
 
 <template>
   <div
-    relative
-    w-20vw h-34vw
-    m="t-2vw l-1.2vw"
+    w-30 h-52
   >
     <img
-      :src="getCharacterSrc(character)"
+      class="animate__animated animate__fadeInDown"
+      :src="src"
       absolute
-      w-20vw h-34vw
+      w-30 h-52
       align-bottom
     >
     <div
-      class="bg-bar"
+      class="bg-bar animate__animated animate__fadeInDown"
+      w-30 h-52
+      absolute
+      bg="[url(/cards/card_bg.png)] no-repeat cover"
     />
     <div
+      v-if="hp !== undefined"
       class="hp-icon"
       absolute
       flex justify-center items-center
@@ -40,15 +43,6 @@ const getCharacterSrc = (name: string): string => {
 </template>
 
 <style scoped>
-.bg-bar{
-  width: 20vw;
-  height: 34vw;
-  background: url(/cards/card_bg.png);
-  background-size: 100% 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 .hp-icon {
   font-family: 'Game Font';
   font-size: 4.5vw;
