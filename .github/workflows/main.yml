@@ -1,15 +1,15 @@
 name: deploy-website
 
-on: 
-  push: 
+on:
+  push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    
+
     timeout-minutes: 10
 
     strategy:
@@ -17,17 +17,17 @@ jobs:
         node_version: [16.x]
         os: [ubuntu-latest]
       fail-fast: false
-    
+
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
-      
+
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
-    
+
       - name: Install
         run: pnpm i
 
@@ -35,13 +35,13 @@ jobs:
         run: pnpm run build
 
       - name: SCP Files
-        uses: appleboy/scp-action@v0.0.1
+        uses: wangyucode/sftp-upload-action@v1.1
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_NAME }}
           password: ${{ secrets.REMOTE_PASSWORD }}
           port: 22
-          source: "dist/"
-          target: ${{ secrets.REMOTE_TARGET }}
-          
-          
+          localDir: "dist"
+          remoteDir: ${{ secrets.REMOTE_TARGET }}
+
+
