@@ -32,4 +32,7 @@ declare module '@vue/runtime-core' {
     UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
     UserMenu: typeof import('./src/components/user/user-menu.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+  }
 }
