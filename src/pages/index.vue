@@ -34,7 +34,7 @@ const openDialog = () => {
             hover:animate-none
             @click="openDialog"
           >
-            开始游戏
+            git actions test
           </div>
           <img rotate-180 :src="playBefore" scale-110>
         </div>
