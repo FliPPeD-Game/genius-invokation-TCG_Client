@@ -11,6 +11,7 @@ const areaName = translateAreaName(USER_INFO.value?.avatarInfo.country)
 const headerImg = `/header/${areaName}.jpg`
 
 const avatarList = ref([] as AvatarListType[])
+const avatarLoading = ref(false)
 
 // const colorThief = new ColorThief()
 // // 获取图片主色调
@@ -30,7 +31,9 @@ const avatarList = ref([] as AvatarListType[])
 const handleAvatarShow = async () => {
   if (avatarList.value.length)
     return
+  avatarLoading.value = true
   avatarList.value = (await getAllAvatars()).data
+  avatarLoading.value = false
 }
 
 const handleAvatarClick = async (url: string, country: AreaChName) => {
@@ -99,7 +102,8 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
         </div>
       </template>
       <div
-        w-400px h-60
+        v-loading="avatarLoading"
+        h-60 w-400px
         overflow-hidden
       >
         <el-tabs
