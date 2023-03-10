@@ -1,0 +1,17 @@
+.el-tabs__item {
+  color: white !important;
+  border-radius: 8px;
+  margin: 2px 12px 2px 0;
+  font-weight: 600 !important;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.el-tabs__item.is-active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.el-tabs__active-bar {
+  display: none;
+}
