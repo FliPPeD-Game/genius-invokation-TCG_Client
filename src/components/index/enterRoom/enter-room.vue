@@ -77,9 +77,9 @@ const enterRoom = async () => {
         object-cover object-center
       >
       <div absolute z-200000 top="50%" text-center w-65vw>
-        <div cursor-pointer @click="enterRoom">
+        <button under-btn cursor-pointer @click="enterRoom">
           创建房间
-        </div>
+        </button>
       </div>
     </div>
     <div

@@ -57,18 +57,19 @@ const copyRoomID = () => {
           房间号:
           <span
             group-active:text-shadow-xl
-            underline="~ offset-5 opacity-10"
+            group-hover-underline="~ offset-5 opacity-10"
           >
             {{ props.roomID }}
           </span>
           <div i-carbon-copy text="3" />
         </div>
       </div>
-      <div mt-5>
-        <button btn mr-2 @click="share()">
+      <!-- <div bg-gray h="1px" w-full m-2 /> -->
+      <div mt-10>
+        <button under-btn mr-2 @click="share()">
           分享房间
         </button>
-        <button btn @click="router.push('/')">
+        <button under-btn @click="router.push('/')">
           退出房间
         </button>
       </div>
