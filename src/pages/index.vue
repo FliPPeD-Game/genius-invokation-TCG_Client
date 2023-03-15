@@ -30,7 +30,7 @@ const openDialog = () => {
             mx-10
             text="white 2xl"
             cursor-pointer
-            animate-pulse
+            class="my-pulse"
             hover:animate-none
             @click="openDialog"
           >
@@ -44,4 +44,27 @@ const openDialog = () => {
     <dialog-enter-room v-model="dialogOpen" />
   </div>
 </template>
+
+<style>
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+@-webkit-keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+.my-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+</style>
 
