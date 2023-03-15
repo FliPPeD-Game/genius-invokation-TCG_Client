@@ -4,6 +4,8 @@ import { Peer } from 'peerjs'
 const roomID = ref('')
 const router = useRouter()
 
+const loading = ref(false)
+
 const handleRoomID = () => {
   if (roomID.value.length !== 6)
     return
@@ -28,36 +30,32 @@ const handleRoomID = () => {
 }
 
 const enterRoom = async () => {
-  const res = {
-    code: 200,
-    data: {
-      roomID: '123456',
-      peerID: '123456',
-    },
-  }
-  router.push(`room/${encodeURIComponent(res.data.roomID)}`)
-  // const data = useCreateRoom()
-  // // 打印每一次的数据
-  // watchEffect(() => {
-  //   if (!data.value)
-  //     return
-  //   const res = JSON.parse(data.value)
-  //   if (res.code === 200) {
-  //     console.log(res)
-  //     router.push({
-  //       path: '/room',
-  //       query: {
-  //         roomID: res.data.roomID,
-  //         peerID: res.data.peerID,
-  //       },
-  //     })
-  //   }
-  // })
+  loading.value = true
+  // const res = {
+  //   code: 200,
+  //   data: {
+  //     roomID: '123456',
+  //     peerID: '123456',
+  //   },
+  // }
+  // router.push(`room/${encodeURIComponent(res.data.roomID)}`)
+  const data = useCreateRoom()
+  // 打印每一次的数据
+  watchEffect(() => {
+    if (!data.value)
+      return
+    const res = JSON.parse(data.value)
+    loading.value = false
+    console.log(res)
+    if (res.code === 200 && res.command === 'createRoom')
+      router.push(`room/${encodeURIComponent(res.data.roomID)}`)
+  })
 }
 </script>
 
 <template>
   <div
+    v-loading="loading"
     text="white 2xl"
     bg-black
     overflow-hidden

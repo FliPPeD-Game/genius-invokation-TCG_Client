@@ -1,8 +1,9 @@
 import { Peer } from 'peerjs'
 
 export const useCreateRoom = () => {
-  const { data, send } = ws()
+  console.log('useCreateRoom')
   const peer = new Peer()
+  const { data, send } = ws()
   let sendCommand
 
   peer.on('open', (id) => {
@@ -13,6 +14,11 @@ export const useCreateRoom = () => {
     })
     send(sendCommand)
   })
+
+  peer.disconnect = () => {
+    console.log('Connection lost. Please reconnect')
+    peer.reconnect()
+  }
 
   return data
 }
