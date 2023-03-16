@@ -13,6 +13,7 @@ request.interceptors.request.use((config) => {
 
   return config
 }, (error) => {
+  ElMessage.error('网络错误，请稍后再试')
   return Promise.reject(error)
 })
 
@@ -22,6 +23,7 @@ request.interceptors.response.use((response) => {
 
   return response.data
 }, (error) => {
+  ElMessage.error('网络错误，请稍后再试')
   return Promise.reject(error)
 })
 

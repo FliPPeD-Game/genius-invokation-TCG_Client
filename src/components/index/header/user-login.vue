@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ElLoading } from 'element-plus'
 import { saveLoginToken } from '@/request/token'
 
 const emit = defineEmits(['isLogin'])
@@ -85,41 +86,64 @@ const submitUserInfo = async () => {
     return
   }
   let res
-  if (isRegisted.value) {
+  const loading = ElLoading.service({
+    lock: true,
+    text: '正在登录...',
+    background: 'rgba(0, 0, 0, 0.7)',
+  })
+  try {
+    if (isRegisted.value) {
     // 登录
-    res = await loginByEmail(emailValue.value, password.value)
-  }
-  else {
+      res = await loginByEmail(emailValue.value, password.value)
+    }
+    else {
     // 注册
-    res = await registerByEmail(emailValue.value, password.value, rePassword.value, emailCode.value)
-  }
-  if (res.code === 200) {
+      res = await registerByEmail(emailValue.value, password.value, rePassword.value, emailCode.value)
+    }
+    if (res.code === 200) {
     // 登录成功
-    saveLoginToken(res.data.Authorization)
-    USER_INFO.value = res.data.userInfo
-    USER_CARDS.value = (await getUserCards()).data
-    ElMessage({
-      message: res.message,
-      type: 'success',
-    })
-  }
-  else {
+      loading.close()
+      saveLoginToken(res.data.Authorization)
+      USER_INFO.value = res.data.userInfo
+      USER_CARDS.value = (await getUserCards()).data
+      ElMessage({
+        message: res.message,
+        type: 'success',
+      })
+    }
+    else {
     // 登录失败
+      loading.close()
+      ElMessage({
+        message: res.message,
+        type: 'error',
+      })
+    }
+    emit('isLogin')
+  }
+  catch (e) {
+    loading.close()
     ElMessage({
-      message: res.message,
+      message: '登录失败',
       type: 'error',
     })
   }
-  emit('isLogin')
 }
 
 // 登录按钮disabled判断
 const isBtnDisabled = computed(() => {
-  if (isRegisted.value)
-    return !emailValue.value || !password.value || isErrorEmail.value
-
-  else
-    return !emailValue.value || !password.value || password.value !== rePassword.value || !emailCode.value || isErrorEmail.value
+  if (isRegisted.value) {
+    return !emailValue.value
+    || !password.value
+    || isErrorEmail.value
+  }
+  else {
+    return !emailValue.value
+      || !password.value
+      || !rePassword.value
+      || !emailCode.value
+      || isErrorEmail.value
+  }
 })
 </script>
 
