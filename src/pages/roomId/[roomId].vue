@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{ roomID: string }>()
+const props = defineProps<{ roomId: string }>()
 const router = useRouter()
 const { share } = useShare({
   title: '快来和我一起玩《七圣召唤》吧！',
-  text: props.roomID,
+  text: props.roomId,
   url: window.location.href,
 })
 
-const copyRoomID = () => {
-  navigator.clipboard.writeText(props.roomID)
+const copyroomId = () => {
+  navigator.clipboard.writeText(props.roomId)
   ElMessage({
     message: '房间号已复制',
     type: 'success',
@@ -48,7 +48,7 @@ const copyRoomID = () => {
       flex="center col"
       cursor-pointer
     >
-      <div @click="copyRoomID">
+      <div @click="copyroomId">
         <div
           class="group"
           text="white 8"
@@ -59,7 +59,7 @@ const copyRoomID = () => {
             group-active:text-shadow-xl
             group-hover-underline="~ offset-5 opacity-10"
           >
-            {{ props.roomID }}
+            {{ props.roomId }}
           </span>
           <div i-carbon-copy text="3" />
         </div>

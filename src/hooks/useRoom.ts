@@ -2,8 +2,14 @@ import { Peer } from 'peerjs'
 
 export const useCreateRoom = () => {
   console.log('useCreateRoom')
-  const peer = new Peer()
   const { data, send } = ws()
+  const peer = new Peer()
+  // const peer = new Peer('someid', {
+  //   host: 'localhost',
+  //   port: 9000,
+  //   path: '/myapp',
+  // })
+
   let sendCommand
 
   peer.on('open', (id) => {

@@ -28,30 +28,28 @@ const handleRoomID = () => {
   })
 }
 
-const enterRoom = async () => {
+const enterRoom = () => {
   const loading = ElLoading.service({
     lock: true,
     text: '正在创建房间...',
     background: 'rgba(0, 0, 0, 0.7)',
   })
-  try {
-    const data = useCreateRoom()
-    console.log(data)
-    // 打印每一次的数据
-    watchEffect(() => {
-      if (!data.value)
+
+  const data = useCreateRoom()
+  // 打印每一次的数据
+  watch(
+    () => data.value,
+    (val) => {
+      if (!val)
         return
-      const res = JSON.parse(data.value)
-      loading.close()
-      console.log(res)
-      if (res.code === 200 && res.command === 'createRoom')
-        router.push(`room/${encodeURIComponent(res.data.roomID)}`)
-    })
-  }
-  catch (error) {
-    loading.close()
-    ElMessage.error('创建房间失败')
-  }
+      const res = JSON.parse(val)
+
+      if (res.code === 200 && res.command === 'createRoom') {
+        loading.close()
+        router.push(`roomId/${encodeURIComponent(res.roomId)}`)
+      }
+    },
+  )
 }
 </script>
 
