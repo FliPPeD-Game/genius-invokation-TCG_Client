@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import { ElLoading } from 'element-plus'
 import { Peer } from 'peerjs'
 
 const roomID = ref('')
 const router = useRouter()
-
-const loading = ref(false)
 
 const handleRoomID = () => {
   if (roomID.value.length !== 6)
@@ -30,32 +29,34 @@ const handleRoomID = () => {
 }
 
 const enterRoom = async () => {
-  loading.value = true
-  // const res = {
-  //   code: 200,
-  //   data: {
-  //     roomID: '123456',
-  //     peerID: '123456',
-  //   },
-  // }
-  // router.push(`room/${encodeURIComponent(res.data.roomID)}`)
-  const data = useCreateRoom()
-  // 打印每一次的数据
-  watchEffect(() => {
-    if (!data.value)
-      return
-    const res = JSON.parse(data.value)
-    loading.value = false
-    console.log(res)
-    if (res.code === 200 && res.command === 'createRoom')
-      router.push(`room/${encodeURIComponent(res.data.roomID)}`)
+  const loading = ElLoading.service({
+    lock: true,
+    text: '正在创建房间...',
+    background: 'rgba(0, 0, 0, 0.7)',
   })
+  try {
+    const data = useCreateRoom()
+    console.log(data)
+    // 打印每一次的数据
+    watchEffect(() => {
+      if (!data.value)
+        return
+      const res = JSON.parse(data.value)
+      loading.close()
+      console.log(res)
+      if (res.code === 200 && res.command === 'createRoom')
+        router.push(`room/${encodeURIComponent(res.data.roomID)}`)
+    })
+  }
+  catch (error) {
+    loading.close()
+    ElMessage.error('创建房间失败')
+  }
 }
 </script>
 
 <template>
   <div
-    v-loading="loading"
     text="white 2xl"
     bg-black
     overflow-hidden
