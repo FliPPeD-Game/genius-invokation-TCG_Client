@@ -1,32 +1,32 @@
 import { Peer } from 'peerjs'
 
 export const useCreateRoom = () => {
-  console.log('useCreateRoom')
+  let peer = {} as Peer
   const { data, send } = ws()
-  const peer = new Peer()
-  // const peer = new Peer('someid', {
-  //   host: 'localhost',
-  //   port: 9000,
-  //   path: '/myapp',
-  // })
-
-  let sendCommand
-
-  peer.on('open', (id) => {
-    console.log(`My peer ID is: ${id}`)
-    sendCommand = JSON.stringify({
-      command: 'createRoom',
-      peerId: id,
-    })
-    send(sendCommand)
+  const sendCommand = JSON.stringify({
+    command: 'createRoom',
   })
 
-  peer.disconnect = () => {
-    console.log('Connection lost. Please reconnect')
-    peer.reconnect()
-  }
+  send(sendCommand)
 
-  return data
+  watch(
+    () => data.value,
+    (val) => {
+      if (!val)
+        return
+      const res = JSON.parse(val)
+
+      if (res.code === 200 && res.command === 'createRoom') {
+        peer = new Peer(res.roomId, {
+          host: 'localhost',
+          port: 9000,
+          path: '/myapp',
+        })
+      }
+    },
+  )
+
+  return peer
 }
 
 export const useEnterRoom = (roomId: string) => {
