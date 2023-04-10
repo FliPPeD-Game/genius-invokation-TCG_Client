@@ -13,9 +13,6 @@ declare module '@vue/runtime-core' {
     DialogEnterRoom: typeof import('./src/components/index/enterRoom/dialog-enter-room.vue')['default']
     DialogLogin: typeof import('./src/components/index/header/dialog-login.vue')['default']
     ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElPopover: typeof import('element-plus/es')['ElPopover']
-    ElTabPane: typeof import('element-plus/es')['ElTabPane']
-    ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     EnterRoom: typeof import('./src/components/index/enterRoom/enter-room.vue')['default']
     Footer: typeof import('./src/components/index/footer/index.vue')['default']
@@ -32,8 +29,5 @@ declare module '@vue/runtime-core' {
     UserHeader: typeof import('./src/components/user/user-header.vue')['default']
     UserLogin: typeof import('./src/components/index/header/user-login.vue')['default']
     UserMenu: typeof import('./src/components/user/user-menu.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
