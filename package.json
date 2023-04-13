@@ -59,7 +59,7 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --no-ignore"
+    "*": "eslint . --fix"
   },
   "eslintConfig": {
     "extends": [
