@@ -14,6 +14,6 @@ const handleLogin = () => {
 
 <template>
   <tcg-dialog v-model="dialogVisible">
-    <user-login @isLogin="handleLogin" />
+    <user-login @is-login="handleLogin" />
   </tcg-dialog>
 </template>

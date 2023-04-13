@@ -5,21 +5,17 @@ const bgImg = `/header/${areaName}.jpg`
 
 <template>
   <div
-    w-full h-full
-    backdrop-blur-126px
-    p-20
+
+    h-full w-full p-20 backdrop-blur-126px
     :style="{
       background: `url(${bgImg}) no-repeat center/cover`,
     }"
   >
     <button
-      px-8 py-4
-      rounded-full
-      inline-block
+
       bg="#88abaf"
-      c-white
-      cursor-pointer
-      transition duration-200 ease-in-out
+
+      inline-block cursor-pointer rounded-full px-8 py-4 c-white transition duration-200 ease-in-out
       hover="bg-#9acfce"
     >
       按钮

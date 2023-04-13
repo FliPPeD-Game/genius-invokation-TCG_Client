@@ -58,11 +58,8 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
     }"
   >
     <div
-      fixed w-full h-15
-      flex justify-between items-center
-      px-8 z-999
-      backdrop-blur-sm
-      shadow-sm
+
+      fixed z-999 h-15 w-full flex items-center justify-between px-8 shadow-sm backdrop-blur-sm
       text="white 3xl"
     >
       <img :src="TCGLogo" alt="TCGLogo" h-18 cursor-pointer @click="router.push('/')">
@@ -78,14 +75,12 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
     >
       <template #reference>
         <div
-          cursor-pointer
-          absolute
-          left-40 top-37
-          z-99
+
+          absolute left-40 top-37 z-99 cursor-pointer
         >
           <Starport
             port="avatar-componet"
-            w-26 h-26
+            h-26 w-26
           >
             <tcg-avatar
               :src="USER_INFO?.avatarInfo.url"
@@ -93,11 +88,9 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
             />
           </Starport>
           <div
-            i-material-symbols:android-camera
-            absolute
-            z-100
+
             c="white/90"
-            left-20 top-19
+            i-material-symbols:android-camera absolute left-20 top-19 z-100
           />
         </div>
       </template>
@@ -115,21 +108,20 @@ const handleAvatarClick = async (url: string, country: AreaChName) => {
             v-for="avatars in avatarList"
             :key="avatars.country"
             :label="avatars.country"
-            class="avatar-tabs animate__animated animate__flipInX"
-            lazy
-            p-2
-            grid="~ cols-4" gap-5
-            overflow-y-auto
-            h-60
+            class="animate__animated animate__flipInX avatar-tabs"
+
+            grid="~ cols-4"
+
+            lazy h-60 gap-5 overflow-y-auto p-2
           >
             <ElImage
               v-for="avatar in avatars.imageInfo"
               :key="avatar.name"
               :src="avatar.src"
               loading="lazy"
-              rounded-full
+
               border="double 4 gray-400"
-              cursor-pointer
+              cursor-pointer rounded-full
               hover="shadow-xl transform scale-120"
               @click="handleAvatarClick(avatar.src, avatars.country)"
             />

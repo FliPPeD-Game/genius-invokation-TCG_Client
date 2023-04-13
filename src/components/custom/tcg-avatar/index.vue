@@ -17,12 +17,10 @@ const handleError = () => {
 
 <template>
   <div
-    rounded-full
+
     border="double 4 gray-400"
-    overflow-hidden
-    inline-block
-    cursor-pointer
-    flex justify-center items-center
+
+    inline-block flex cursor-pointer items-center justify-center overflow-hidden rounded-full
   >
     <img
       :src="avatarSrc"

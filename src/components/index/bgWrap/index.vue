@@ -4,15 +4,13 @@ import bgPoster from '/bg/bg_poster.jpg'
 </script>
 
 <template>
-  <div fixed w-full h-100vh z--1>
+  <div fixed z--1 h-100vh w-full>
     <video
-      w-full h-100vh
-      object-cover
+
       :src="bgVideo"
       :poster="bgPoster"
-      autoplay
-      muted
-      loop
+
+      autoplay loop muted h-100vh w-full object-cover
     />
   </div>
 </template>

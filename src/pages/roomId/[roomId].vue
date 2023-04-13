@@ -24,35 +24,35 @@ const copyroomId = () => {
     flex="~ col" justify-center
   >
     <div
-      w-full h-20vh flex-center
+      h-20vh w-full flex-center
     >
       <own-player scale-55 />
       <opponent-player scale-55 />
     </div>
     <div
-      w-full h-40vh
-      flex-center
+
+      h-40vh w-full flex-center
     >
       <own-role-card />
       <h1
         text="white 30 shadow-sm"
-        px-16
-        italic font-600 subpixel-antialiased
+
+        px-16 font-600 italic subpixel-antialiased
       >
         VS
       </h1>
       <own-role-card />
     </div>
     <div
-      w-full h-20vh
+
       flex="center col"
-      cursor-pointer
+      h-20vh w-full cursor-pointer
     >
       <div @click="copyroomId">
         <div
           class="group"
           text="white 8"
-          font-600 flex
+          flex font-600
         >
           房间号:
           <span
@@ -66,7 +66,7 @@ const copyroomId = () => {
       </div>
       <!-- <div bg-gray h="1px" w-full m-2 /> -->
       <div mt-10>
-        <button under-btn mr-2 @click="share()">
+        <button mr-2 under-btn @click="share()">
           分享房间
         </button>
         <button under-btn @click="router.push('/')">

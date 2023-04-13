@@ -68,8 +68,8 @@ const saveUserInfo = () => {
       ipt
       placeholder="用户名"
     >
-    <div :class="!verifyMessage.nickName.visible && 'invisible'" h-10 mt-2>
-      <p color-red text-xs ml-2>
+    <div :class="!verifyMessage.nickName.visible && 'invisible'" mt-2 h-10>
+      <p ml-2 text-xs color-red>
         {{ verifyMessage.nickName.label }}
       </p>
     </div>
@@ -79,8 +79,8 @@ const saveUserInfo = () => {
       ipt
       placeholder="邮箱"
     >
-    <div :class="!verifyMessage.email.visible && 'invisible'" h-10 mt-2>
-      <p color-red text-xs ml-2>
+    <div :class="!verifyMessage.email.visible && 'invisible'" mt-2 h-10>
+      <p ml-2 text-xs color-red>
         {{ verifyMessage.email.label }}
       </p>
     </div>
@@ -110,8 +110,8 @@ const saveUserInfo = () => {
         <label radio-lab for="woman">女</label>
       </div>
     </div>
-    <div :class="!verifyMessage.gender.visible && 'invisible'" h-10 mt-2>
-      <p color-red text-xs ml-2>
+    <div :class="!verifyMessage.gender.visible && 'invisible'" mt-2 h-10>
+      <p ml-2 text-xs color-red>
         {{ verifyMessage.gender.label }}
       </p>
     </div>
@@ -121,8 +121,8 @@ const saveUserInfo = () => {
       ipt
       placeholder="密码"
     >
-    <div :class="!verifyMessage.password.visible && 'invisible'" h-10 mt-2>
-      <p color-red text-xs ml-2>
+    <div :class="!verifyMessage.password.visible && 'invisible'" mt-2 h-10>
+      <p ml-2 text-xs color-red>
         {{ verifyMessage.password.label }}
       </p>
     </div>
@@ -132,8 +132,8 @@ const saveUserInfo = () => {
       ipt
       placeholder="再次确认密码"
     >
-    <div :class="!verifyMessage.rePassword.visible && 'invisible'" h-10 mt-2>
-      <p color-red text-xs ml-2>
+    <div :class="!verifyMessage.rePassword.visible && 'invisible'" mt-2 h-10>
+      <p ml-2 text-xs color-red>
         {{ verifyMessage.rePassword.label }}
       </p>
     </div>

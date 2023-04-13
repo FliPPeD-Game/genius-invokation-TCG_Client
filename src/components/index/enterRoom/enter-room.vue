@@ -12,14 +12,11 @@ const handleRoomID = () => {
   if (roomID.value.length > 6)
     roomID.value = roomID.value.slice(0, 6)
 
-  console.log('send')
   const data = useEnterRoom(roomID.value)
   watchEffect(() => {
     if (!data.value)
       return
-    console.log(JSON.parse(data.value))
     const { peerID } = JSON.parse(data.value)
-    console.log(peerID)
     const peer = new Peer()
     const peerConnect = peer.connect(peerID)
     peerConnect.on('open', () => {
@@ -56,9 +53,8 @@ const enterRoom = () => {
 <template>
   <div
     text="white 2xl"
-    bg-black
-    overflow-hidden
-    rounded-xl
+
+    overflow-hidden rounded-xl bg-black
   >
     <div
       class="group"
@@ -67,14 +63,13 @@ const enterRoom = () => {
     >
       <img
         src="/header/mondstadt.jpg"
-        transition duration-300 ease-in-out
-        opacity-70
+
         group-hover="opacity-100 scale-140"
-        w-65vw h-20vh
-        object-cover object-center
+
+        h-20vh w-65vw object-cover object-center opacity-70 transition duration-300 ease-in-out
       >
-      <div absolute z-200000 top="50%" text-center w-65vw>
-        <button under-btn cursor-pointer @click="enterRoom">
+      <div top="50%" absolute z-200000 w-65vw text-center>
+        <button cursor-pointer under-btn @click="enterRoom">
           创建房间
         </button>
       </div>
@@ -86,21 +81,18 @@ const enterRoom = () => {
     >
       <img
         src="/header/liyue.jpg"
-        transition duration-300 ease-in-out
-        overflow-hidden
-        opacity-70
+
         group-hover="opacity-100 scale-140"
-        w-65vw h-20vh
-        object-cover object-center
+
+        h-20vh w-65vw overflow-hidden object-cover object-center opacity-70 transition duration-300 ease-in-out
       >
       <div
-        absolute
-        z-30000
+
         top="30%"
-        w-65vw
+
         flex="~ col"
-        justify-center
-        items-center
+
+        absolute z-30000 w-65vw items-center justify-center
       >
         <input
           v-model="roomID"

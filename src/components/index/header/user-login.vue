@@ -154,7 +154,7 @@ const isBtnDisabled = computed(() => {
         {{ loginLabel }}
       </h1>
       <p>快{{ loginLabel }}账号，来一场七圣召唤吧！</p>
-      <p color-gray text-sm mt-1>
+      <p mt-1 text-sm color-gray>
         {{ isRegisted ? '没有账号?输入邮箱将自动注册' : '该邮箱未绑定账号，现为你注册' }}
       </p>
       <div mt-12>
@@ -173,7 +173,7 @@ const isBtnDisabled = computed(() => {
           leave-active-class="animate__animated animate__fadeOutUp"
         >
           <div v-if="isErrorEmail">
-            <p color-red text-xs ml-2>
+            <p ml-2 text-xs color-red>
               邮箱格式错误
             </p>
           </div>
@@ -189,7 +189,7 @@ const isBtnDisabled = computed(() => {
           >
         </div>
         <div>
-          <p color-red text-xs ml-2>
+          <p ml-2 text-xs color-red>
             {{ isErrorPassWordLabel }}
           </p>
         </div>
@@ -223,21 +223,21 @@ const isBtnDisabled = computed(() => {
             <input
               v-model="emailCode"
               type="text"
-              ipt
-              mr-8
+
+              mr-8 ipt
               placeholder="邮箱验证码"
             >
             <button
-              btn
+
               :disabled="!allowSendEmail"
-              rounded-lg
+              rounded-lg btn
               @click="sendEmailToGetCode"
             >
               {{ sendEmailLabel }}
             </button>
           </div>
         </Transition>
-        <div flex mt-20 justify-between items-center>
+        <div mt-20 flex items-center justify-between>
           <button
             btn
             :disabled="isBtnDisabled"

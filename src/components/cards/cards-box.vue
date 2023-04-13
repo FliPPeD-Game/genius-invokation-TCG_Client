@@ -21,20 +21,13 @@ const computedClassName = (index: number) => {
 <template>
   <div
     class="character-box group"
-    relative
-    w-80 h-40
-    bg="white/20" shadow-lg
-    rounded-xl border="xl"
-    transition duration-300 ease-in-out
-    hover:shadow-2xl
-    flex block
-    c-white
+    bg="white/20"
+    border="xl"
+    relative block h-40 w-80 flex rounded-xl c-white shadow-lg transition duration-300 ease-in-out hover:shadow-2xl
     cursor="pointer"
   >
     <div
-      scale-60
-      w-40
-      translate-y--5 translate-x--2
+      w-40 translate-x--2 translate-y--5 scale-60
     >
       <Character
         v-for="(item, index) in cards"
@@ -56,16 +49,14 @@ const computedClassName = (index: number) => {
         <div text-2xl font-bold>
           {{ title }}
         </div>
-        <div text-sm mt-2>
+        <div mt-2 text-sm>
           Lv. 80
         </div>
       </div>
       <div
-        hidden
         group-hover="flex flex-col items-start justify-center"
         class="animate__animated animate__fadeInRight"
-        w-full h-full
-        text-2xl font-bold decoration-2 underline-offset-5
+        hidden h-full w-full text-2xl font-bold decoration-2 underline-offset-5
       >
         <button
           hover-underline

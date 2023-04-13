@@ -30,25 +30,19 @@ const menuList = [
 <template>
   <div
     w="52.5"
-    pt-10
-    backdrop-blur-3xl
+
     text="#C1D4DA"
-    font-bold
-    flex="~ col" items-center
-    subpixel-antialiased
+
+    flex="~ col"
+    items-center pt-10 font-bold subpixel-antialiased backdrop-blur-3xl
   >
     <div
       v-for="item in menuList"
       :key="item.name"
       class="group"
-      w-40
-      flex justify-start
-      py-2 px-5
-      my-1
-      rounded-lg
-      cursor-pointer
+
       hover:bg="white/20"
-      transition-all duration-300
+      my-1 w-40 flex cursor-pointer justify-start rounded-lg px-5 py-2 transition-all duration-300
       :class="route.path === item.path ? 'c-white bg-white/50' : ''"
       @click="router.push(item.path)"
     >

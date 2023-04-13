@@ -50,23 +50,20 @@ const menuList = [
 
 <template>
   <div
-    w-full h-18
-    flex justify-between items-center
-    px-8
-    fixed
+
+    fixed h-18 w-full flex items-center justify-between px-8
   >
     <img :src="TCGLogo" alt="TCGLogo" h-18>
     <div
       v-if="isLogin"
       class="group"
-      w-14 h-14
-      relative
+
+      relative h-14 w-14
     >
       <Starport
         port="avatar-componet"
-        absolute z-20
-        w-14 h-14
-        transition-all duration-400
+
+        absolute z-20 h-14 w-14 transition-all duration-400
         group-hover="scale-120 translate-y-5 translate-x--5"
       >
         <tcg-avatar
@@ -75,21 +72,16 @@ const menuList = [
         />
       </Starport>
       <div
-        scale-0 opacity-0
-        right--26 top--34
-        transition-all duration-400 delay-200 ease-in-out
+
         group-hover="scale-100 opacity-100 right-0 top-0"
-        z-19
-        absolute
-        bg-white rounded-lg
-        shadow-2xl
-        pt-10 pb-5 px-5
+
+        absolute right--26 top--34 z-19 scale-0 rounded-lg bg-white px-5 pb-5 pt-10 opacity-0 shadow-2xl transition-all duration-400 delay-200 ease-in-out
         flex="col center"
       >
         <div
           text="#18191c xl"
-          font-bold w-full
-          cursor-default
+
+          w-full cursor-default font-bold
         >
           {{ USER_INFO.nickname }}
         </div>
@@ -97,11 +89,8 @@ const menuList = [
         <div
           v-for="item in menuList"
           :key="item.name"
-          p-2 rounded-lg
-          w-full
-          inline-flex
-          cursor-pointer
-          c-gray
+
+          w-full inline-flex cursor-pointer rounded-lg p-2 c-gray
           hover:bg="#e3e5e7"
           @click="router.push(item.path)"
         >
@@ -114,11 +103,8 @@ const menuList = [
         </div>
         <div my-2 bg="#e3e5e7" w-50 h=".25" />
         <div
-          p-2 rounded-lg
-          w-full
-          inline-flex
-          cursor-pointer
-          c-gray
+
+          w-full inline-flex cursor-pointer rounded-lg p-2 c-gray
           hover:bg="#e3e5e7"
           @click="logout"
         >
@@ -138,7 +124,7 @@ const menuList = [
       placement="top"
     >
       <tcg-avatar
-        w-14 h-14
+        h-14 w-14
         @click="openLoginDialog"
       />
     </ElTooltip>

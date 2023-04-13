@@ -7,9 +7,11 @@
     "dev": "vite --port 3333 --open",
     "dev:t": "tauri dev",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "postinstall": "pnpx simple-git-hooks"
   },
   "dependencies": {
     "@formkit/auto-animate": "1.0.0-beta.6",
@@ -31,14 +33,17 @@
     "@iconify-json/ph": "^1.1.3",
     "@tauri-apps/cli": "^1.2.3",
     "@types/node": "^18.11.18",
+    "@unocss/eslint-config": "^0.50.6",
     "@unocss/reset": "^0.47.6",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.2.7",
     "@vue/tsconfig": "^0.1.3",
     "eslint": "^8.31.0",
     "jsdom": "^20.0.3",
+    "lint-staged": "^13.2.1",
     "pnpm": "^7.22.0",
     "sass": "^1.57.1",
+    "simple-git-hooks": "^2.8.1",
     "typescript": "^4.9.4",
     "unocss": "^0.47.6",
     "unplugin-auto-import": "^0.12.1",
@@ -50,10 +55,20 @@
     "vitest": "^0.25.8",
     "vue-tsc": "^1.0.22"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --no-ignore"
+  },
   "eslintConfig": {
-    "extends": "@antfu",
+    "extends": [
+      "@antfu",
+      "@unocss"
+    ],
     "ignorePatterns": [
-      "src-tauri"
+      "src-tauri",
+      "pnpm-lock.yaml"
     ]
   }
 }

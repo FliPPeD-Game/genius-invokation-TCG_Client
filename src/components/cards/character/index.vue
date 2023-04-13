@@ -14,28 +14,27 @@ const { hp, src } = defineProps<Props>()
 
 <template>
   <div
-    w-30 h-52
+    h-52 w-30
   >
     <img
       class="animate__animated animate__fadeInDown"
       :src="src"
-      absolute
-      w-30 h-52
-      align-bottom
+
+      absolute h-52 w-30 align-bottom
     >
     <div
-      class="bg-bar animate__animated animate__fadeInDown"
-      w-30 h-52
-      absolute
+      class="animate__animated animate__fadeInDown bg-bar"
+
+      absolute h-52 w-30
       bg="[url(/cards/card_bg.png)] no-repeat cover"
     />
     <div
       v-if="hp !== undefined"
       class="hp-icon"
-      absolute
-      flex justify-center items-center
+
+      absolute flex items-center justify-center
     >
-      <span text-shadow translate-y-2>
+      <span translate-y-2 text-shadow>
         {{ hp }}
       </span>
     </div>

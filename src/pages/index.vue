@@ -12,17 +12,14 @@ const openDialog = () => {
     <BgWrap />
     <div
       flex="~ col"
-      justify-between
-      h-100vh
-      pb-8
-      z-1
+
+      z-1 h-100vh justify-between pb-8
     >
       <Header />
       <div
         flex="~ col"
-        justify-center
-        items-center
-        h-100vh
+
+        h-100vh items-center justify-center
       >
         <div flex items-center>
           <img :src="playBefore" scale-110>
